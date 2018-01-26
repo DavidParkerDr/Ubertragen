@@ -9,22 +9,17 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
 
 using Microsoft.Xna.Framework.Input;
+using Transmission.World;
 
 namespace Transmission.Scenes
 {
     public class GameScene : IScene
     {
-
-        Texture2D mCursorTexture;
-        Rectangle mMouseRectangle;
-        SpriteBatch mSpriteBatch;
+        Level mLevel;
 
         public GameScene(string pLevelFile)
         {
-            IGame game = Transmission.Instance();
-            mCursorTexture = game.CM().Load<Texture2D>("pixel");
-            mMouseRectangle = new Rectangle(0, 0, DGS.MOUSE_WIDTH, DGS.MOUSE_HEIGHT);
-            mSpriteBatch = new SpriteBatch(game.GDM().GraphicsDevice);
+            mLevel = new Level(pLevelFile);
         }
 
 
@@ -32,9 +27,7 @@ namespace Transmission.Scenes
         {
             Transmission.Instance().GDM().GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            mSpriteBatch.Begin();
-            mSpriteBatch.Draw(mCursorTexture, mMouseRectangle, Color.White);
-            mSpriteBatch.End();
+            mLevel.Draw(pSeconds);
 
         }
 
@@ -45,8 +38,7 @@ namespace Transmission.Scenes
                 Transmission.Instance().Exit();
             }
 
-            mMouseRectangle.X = Mouse.GetState().Position.X - DGS.MOUSE_WIDTH / 2;
-            mMouseRectangle.Y = Mouse.GetState().Position.Y - DGS.MOUSE_HEIGHT / 2;
+            mLevel.Update(pSeconds);
         }
 
     

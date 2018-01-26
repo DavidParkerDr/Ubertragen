@@ -11,5 +11,8 @@ namespace Transmission
         public const float SECONDS_TO_DISPLAY_FLASH_SCREEN = 1.5f;
         public const int MOUSE_WIDTH = 10;
         public const int MOUSE_HEIGHT = 10;
+
+        public const int TRANSMITTER_WIDTH = 50;
+        public const int TRANSMITTER_HEIGHT = 50;
     }
 }

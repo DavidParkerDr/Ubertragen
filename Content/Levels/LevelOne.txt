@@ -1,0 +1,4 @@
+﻿Transmitter, 100, 100
+Transmitter, 100, 200
+Transmitter, 200, 200
+Transmitter, 200, 100

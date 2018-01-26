@@ -83,7 +83,7 @@ namespace Transmission
             mBatch = new SpriteBatch(GraphicsDevice);
 
 
-            mSceneManager.Push(new GameScene("levelOne"));
+            mSceneManager.Push(new GameScene("Content/Levels/LevelOne.txt"));
 
             // TODO: use this.Content to load your game content here
         }
