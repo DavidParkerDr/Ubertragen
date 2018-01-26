@@ -97,7 +97,7 @@ namespace Transmission.Scenes
             startMusicInstance.Stop();
             IGame game = Transmission.Instance();
             game.SM().Pop();
-            game.SM().Push(new GameScene());
+            game.SM().Push(new GameScene("levelOne"));
         }
 
         public void Update(float pSeconds)

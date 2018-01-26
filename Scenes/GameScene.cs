@@ -19,7 +19,7 @@ namespace Transmission.Scenes
         Rectangle mMouseRectangle;
         SpriteBatch mSpriteBatch;
 
-        public GameScene()
+        public GameScene(string pLevelFile)
         {
             IGame game = Transmission.Instance();
             mCursorTexture = game.CM().Load<Texture2D>("pixel");

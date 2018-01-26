@@ -54,6 +54,8 @@
     <Compile Include="Scenes\FlashScreenScene.cs" />
     <Compile Include="Scenes\SceneManager.cs" />
     <Compile Include="Scenes\StartScene.cs" />
+    <Compile Include="World\Level.cs" />
+    <Compile Include="World\Transmitter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
