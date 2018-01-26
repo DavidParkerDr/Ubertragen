@@ -22,3 +22,4 @@ C:\ggj-2018\bin\Windows\Debug\SharpDX.Direct3D9.xml
 C:\ggj-2018\obj\x86\Debug\Transmission.csproj.CoreCompileInputs.cache
 C:\ggj-2018\obj\x86\Debug\Tankontroller.exe
 C:\ggj-2018\obj\x86\Debug\Tankontroller.pdb
+C:\ggj-2018\bin\Windows\Debug\Content\pixel.xnb

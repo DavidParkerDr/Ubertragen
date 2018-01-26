@@ -15,15 +15,27 @@ namespace Transmission.Scenes
     public class GameScene : IScene
     {
 
+        Texture2D mCursorTexture;
+        Rectangle mMouseRectangle;
+        SpriteBatch mSpriteBatch;
+
         public GameScene()
         {
- 
+            IGame game = Transmission.Instance();
+            mCursorTexture = game.CM().Load<Texture2D>("pixel");
+            mMouseRectangle = new Rectangle(0, 0, DGS.MOUSE_WIDTH, DGS.MOUSE_HEIGHT);
+            mSpriteBatch = new SpriteBatch(game.GDM().GraphicsDevice);
         }
 
 
         public void Draw(float pSeconds)
         {
             Transmission.Instance().GDM().GraphicsDevice.Clear(Color.CornflowerBlue);
+
+            mSpriteBatch.Begin();
+            mSpriteBatch.Draw(mCursorTexture, mMouseRectangle, Color.White);
+            mSpriteBatch.End();
+
         }
 
         public void Update(float pSeconds)
@@ -32,6 +44,9 @@ namespace Transmission.Scenes
             {
                 Transmission.Instance().Exit();
             }
+
+            mMouseRectangle.X = Mouse.GetState().Position.X - DGS.MOUSE_WIDTH / 2;
+            mMouseRectangle.Y = Mouse.GetState().Position.Y - DGS.MOUSE_HEIGHT / 2;
         }
 
     
