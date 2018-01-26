@@ -23,12 +23,15 @@ namespace Transmission.Scenes
 
         public void Draw(float pSeconds)
         {
-    
+            Transmission.Instance().GDM().GraphicsDevice.Clear(Color.CornflowerBlue);
         }
 
         public void Update(float pSeconds)
         {
-  
+            if(Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
+                Transmission.Instance().Exit();
+            }
         }
 
     

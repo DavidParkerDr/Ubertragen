@@ -83,7 +83,7 @@ namespace Transmission
             mBatch = new SpriteBatch(GraphicsDevice);
 
 
-            mSceneManager.Push(new FlashScreenScene());
+            mSceneManager.Push(new GameScene());
 
             // TODO: use this.Content to load your game content here
         }
@@ -116,6 +116,7 @@ namespace Transmission
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+           
             float seconds = 0.001f * gameTime.ElapsedGameTime.Milliseconds;
             mSceneManager.Draw(seconds);
             base.Draw(gameTime);
