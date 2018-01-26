@@ -1,0 +1,39 @@
+﻿
+Tank can move around properly (pivoting around "correct" points based on tracks)
+Turret can move around
+Turret can shoot
+Tank can take damage and has health
+Take dies
+As you use controls they drain port
+Can add energy to port (use keys 1-8 and have fixed "control")
+
+Assets
+StartScreenBackground
+StartButton
+ExitButton
+Tanks
+EndScreenBackground
+MainMenuButton
+
+Creepy Features
+EMP
+Charging shots
+Modular tanks
+Particles
+Tilemap
+Fancy Camera
+Shader effects
+Bullets that bounce off
+
+-----------------------------------------
+
+Second tank
+
+bullet to tank collisions
+ - basic against rotated rectangle
+ - angle of incidence for richochets and bounces.
+
+bullet hit animation
+
+muzzle flash
+
