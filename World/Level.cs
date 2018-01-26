@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Transmission;
+using Transmission.Helpers;
 
 namespace Transmission.World
 {
@@ -53,15 +54,30 @@ namespace Transmission.World
         {
             mMouseRectangle.X = Mouse.GetState().Position.X - DGS.MOUSE_WIDTH / 2;
             mMouseRectangle.Y = Mouse.GetState().Position.Y - DGS.MOUSE_HEIGHT / 2;
+
+            if(Mouse.GetState().LeftButton == ButtonState.Pressed)
+            {
+                for(int i = 0; i < mTransmitters.Count; i++)
+                {
+                    if(mTransmitters[i].Rect.IsInside(Mouse.GetState().Position))
+                    {
+                        mTransmitters[i].HackTransmitter();
+                    }
+                }
+            }
+
         }
 
         public void Draw(float pSeconds)
         {
             mSpriteBatch.Begin();
 
+            Color color = Color.Goldenrod;
+
             for(int i = 0; i < mTransmitters.Count; i++)
             {
-                mSpriteBatch.Draw(mCursorTexture, mTransmitters[i].Rect, Color.Goldenrod);
+                color = mTransmitters[i].State == Transmitter.TransmitterState.NORMAL ? Color.Goldenrod : Color.OrangeRed;
+                mSpriteBatch.Draw(mCursorTexture, mTransmitters[i].Rect, color);
             }
 
             mSpriteBatch.Draw(mCursorTexture, mMouseRectangle, Color.White);

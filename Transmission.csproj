@@ -9,8 +9,8 @@
     <ProjectGuid>{A7E6027B-85BE-4D75-BCB6-5B8C74D760B5}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tankontroller</RootNamespace>
-    <AssemblyName>Tankontroller</AssemblyName>
+    <RootNamespace>Transmission</RootNamespace>
+    <AssemblyName>Transmission</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MonoGamePlatform>Windows</MonoGamePlatform>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DGS.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Helpers\RectHelpers.cs" />
     <Compile Include="Scenes\GameOverScene.cs" />
     <Compile Include="SoundManager.cs" />
     <Compile Include="Program.cs" />

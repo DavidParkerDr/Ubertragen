@@ -21,8 +21,6 @@
 /Users/david/git/ggj-2018/obj/x86/Debug/Tankontroller.pdb
 C:\ggj-2018\bin\Windows\Debug\Content\pixel.xnb
 C:\ggj-2018\bin\Windows\Debug\Content\selogo.xnb
-C:\ggj-2018\bin\Windows\Debug\Tankontroller.exe
-C:\ggj-2018\bin\Windows\Debug\Tankontroller.pdb
 C:\ggj-2018\bin\Windows\Debug\MonoGame.Framework.dll
 C:\ggj-2018\bin\Windows\Debug\SharpDX.MediaFoundation.dll
 C:\ggj-2018\bin\Windows\Debug\SharpDX.dll
@@ -43,6 +41,8 @@ C:\ggj-2018\bin\Windows\Debug\SharpDX.XInput.xml
 C:\ggj-2018\bin\Windows\Debug\SharpDX.Direct3D9.xml
 C:\ggj-2018\obj\x86\Debug\Transmission.csprojResolveAssemblyReference.cache
 C:\ggj-2018\obj\x86\Debug\Transmission.csproj.CoreCompileInputs.cache
-C:\ggj-2018\obj\x86\Debug\Tankontroller.exe
-C:\ggj-2018\obj\x86\Debug\Tankontroller.pdb
 C:\ggj-2018\bin\Windows\Debug\Content\Levels\LevelOne.txt
+C:\ggj-2018\bin\Windows\Debug\Transmission.exe
+C:\ggj-2018\bin\Windows\Debug\Transmission.pdb
+C:\ggj-2018\obj\x86\Debug\Transmission.exe
+C:\ggj-2018\obj\x86\Debug\Transmission.pdb
