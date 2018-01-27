@@ -104,7 +104,7 @@ namespace Transmission.World
                             mHacksRemaining--;
 
                             if (mHacksRemaining == 0) {
-                                this.State = LevelState.Propagating;
+                                this.changeState(LevelState.Propagating);
                             }
                         }
                     }
@@ -151,7 +151,12 @@ namespace Transmission.World
                 mSpriteBatch.Draw(mCursorTexture, mMouseRectangle, Color.White);
             }
 
-            mSpriteBatch.DrawString(mFont, mHacksRemaining >= 10 ? mHacksRemaining.ToString() : "0" + mHacksRemaining.ToString(), new Vector2(110, 28), Color.White);
+            mSpriteBatch.DrawString(mFont, 
+                                    mHacksRemaining >= 10 ? 
+                                        mHacksRemaining.ToString() : 
+                                        "0" + mHacksRemaining.ToString(), 
+                                    new Vector2(110, 28), 
+                                    mHacksRemaining == 0 ? Color.Red : Color.White);
             mSpriteBatch.End();
         }
 
