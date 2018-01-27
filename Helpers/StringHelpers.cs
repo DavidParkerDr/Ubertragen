@@ -14,11 +14,13 @@ namespace Transmission.Helpers
             switch (pString.ToLower().Trim())
             {
                 case "red":
-                    return Color.Red;
-                case "green":
-                    return Color.Green;
-                case "blue":
-                    return Color.Blue;
+                    return DGS.RED;
+                case "cyan":
+                    return DGS.CYAN;
+                case "gold":
+                    return DGS.GOLD;
+                case "fuchsia":
+                    return DGS.FUCHSIA;
                 default:
                     throw new Exception("Unrecognised colour string " + pString);
             }

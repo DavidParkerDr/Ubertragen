@@ -52,8 +52,8 @@ namespace Transmission
 
             mSoundManager = new SoundManager();
 
-            mGraphics.PreferredBackBufferHeight = 480;
-            mGraphics.PreferredBackBufferWidth = 640;
+            mGraphics.PreferredBackBufferHeight = 1668 / 2;
+            mGraphics.PreferredBackBufferWidth = 2224 / 2;
             mGraphics.IsFullScreen =  false;
             this.Window.Title = "Transmission";
         }

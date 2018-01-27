@@ -37,7 +37,7 @@ namespace Transmission.World
 
             if(LifeLeft < DGS.WAVE_LIFETIME * 0.25)
             {
-                mColour.A = (byte)(255 * (LifeLeft / (DGS.WAVE_LIFETIME * 0.25f)));
+                mColour.A = (byte)(255 * (LifeLeft / (DGS.WAVE_LIFETIME * 0.5f)));
             }
 
             mRectangle.Width = (int)(mCircle.Radius * 2);

@@ -33,7 +33,7 @@ namespace Transmission.Scenes
             int screenWidth = game.GDM().GraphicsDevice.Viewport.Width;
             int screenHeight = game.GDM().GraphicsDevice.Viewport.Height;
 
-            var sb = new SpriteBatch(game.GDM().GraphicsDevice);
+            sb = new SpriteBatch(game.GDM().GraphicsDevice);
         }
 
 
@@ -41,7 +41,7 @@ namespace Transmission.Scenes
         {
             sb.Begin();
 
-            sb.Draw(speakerTexture, speakerRectangle, Color.White);
+     //       sb.Draw(speakerTexture, speakerRectangle, Color.White);
 
             sb.End();
         }

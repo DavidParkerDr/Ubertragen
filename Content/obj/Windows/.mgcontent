@@ -4,9 +4,19 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/ggj-2018/Content/selogo.png</File>
+    <File>C:/ggj-2018/Content/Fonts/8BitLimit.spritefont</File>
+    <File>C:/ggj-2018/Content/Fonts/Eurostile.spritefont</File>
+    <File>C:/ggj-2018/Content/Fonts/EurostileBold.spritefont</File>
+    <File>C:/ggj-2018/Content/Fonts/PressStart2P.spritefont</File>
     <File>C:/ggj-2018/Content/pixel.png</File>
+    <File>C:/ggj-2018/Content/selogo.png</File>
+    <File>C:/ggj-2018/Content/Title/click.png</File>
+    <File>C:/ggj-2018/Content/Title/Cover.png</File>
+    <File>C:/ggj-2018/Content/Title/Title.png</File>
     <File>C:/ggj-2018/Content/white_circle.png</File>
     <File>C:/ggj-2018/Content/white_disk.png</File>
+    <File>C:/ggj-2018/Content/UI/UI-09.png</File>
+    <File>C:/ggj-2018/Content/absorber.png</File>
+    <File>C:/ggj-2018/Content/unhackable.png</File>
   </SourceFiles>
 </SourceFileCollection>

@@ -1,0 +1,4 @@
+﻿Hacks:3
+Transmitter, 100, 100, red
+Absorber, 100, 200
+Transmitter, 100, 300, red

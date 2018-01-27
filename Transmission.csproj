@@ -85,6 +85,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\absorber.png" />
     <Content Include="Content\Levels\LevelOne.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -96,6 +97,11 @@
     </Content>
     <Content Include="Content\pixel.png" />
     <Content Include="Content\selogo.png" />
+    <Content Include="Content\Title\click.png" />
+    <Content Include="Content\Title\Cover.png" />
+    <Content Include="Content\Title\title.png" />
+    <Content Include="Content\UI\UI-09.png" />
+    <Content Include="Content\unhackable.png" />
     <Content Include="Content\white_circle.png" />
     <Content Include="Content\white_disk.png" />
     <Content Include="Icon.ico" />
@@ -114,11 +120,9 @@
     <None Include="Data\Story\Intro.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Folder Include="Data\Convos\" />
     <None Include="Data\Convos\test.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Folder Include="Data\Stages\" />
     <None Include="Data\Stages\01.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -126,7 +130,6 @@
   <ItemGroup>
     <Folder Include="Content\Music\" />
     <Folder Include="Content\Sounds\" />
-    <Folder Include="Content\Title\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

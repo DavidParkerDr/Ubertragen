@@ -32,9 +32,9 @@ namespace Transmission.World
         public void HackTransmitter(Color pColour)
         {
             State = TransmitterState.HACKED;
-            mColour.R = (byte)(Math.Min(mColour.R + pColour.R, 255));
+         /*   mColour.R = (byte)(Math.Min(mColour.R + pColour.R, 255));
             mColour.G = (byte)(Math.Min(mColour.G + pColour.G, 255));
-            mColour.B = (byte)(Math.Min(mColour.B + pColour.B, 255));
+            mColour.B = (byte)(Math.Min(mColour.B + pColour.B, 255)); */
         }
 
         public override bool MouseClick(Point pPosition)
@@ -65,7 +65,7 @@ namespace Transmission.World
                 mTimeToWave -= pSeconds;
                 if(mTimeToWave <= 0)
                 {
-                    mTimeToWave += DGS.TIME_BETWEEN_WAVES;
+                    mTimeToWave += DGS.TIME_BETWEEN_WAVES + DGS.RNG.Next(0, 10) * 0.1f - 0.05f;
                     WaveManager.Instance().AddWave(Circle.Position, mColour);
                 }
             }
