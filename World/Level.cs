@@ -15,6 +15,16 @@ namespace Transmission.World
 {
     public class Level
     {
+        enum LevelState
+        {
+            Playing,
+            Won,
+            Lost,
+            Propagating
+        };
+
+        private float propagatingTime = 5f;
+
         private Texture2D mCursorTexture;
         private Rectangle mMouseRectangle;
         private Texture2D mWhiteCircle;
@@ -25,6 +35,10 @@ namespace Transmission.World
         private int mStartingNumberOfHacks;
         private int mHacksRemaining;
         private SpriteFont mFont;
+
+        private LevelState State;
+        private float timeInState;
+        public bool HasFocus { get; set; }
 
         public Level(string pFileName)
         {
@@ -44,6 +58,7 @@ namespace Transmission.World
 
             mStartingNumberOfHacks = int.Parse(firstLine.Substring(firstLine.IndexOf(':') + 1));
             mHacksRemaining = mStartingNumberOfHacks;
+            this.State = LevelState.Playing;
             while(!reader.EndOfStream)
             {
                 string line = reader.ReadLine();
@@ -73,23 +88,50 @@ namespace Transmission.World
 
         public void Update(float pSeconds)
         {
-            mMouseRectangle.X = Mouse.GetState().Position.X - DGS.MOUSE_WIDTH / 2;
-            mMouseRectangle.Y = Mouse.GetState().Position.Y - DGS.MOUSE_HEIGHT / 2;
+            timeInState += pSeconds;
 
-            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+            if (State == LevelState.Playing && HasFocus)
             {
-                if (mHacksRemaining > 0)
+                mMouseRectangle.X = Mouse.GetState().Position.X - DGS.MOUSE_WIDTH / 2;
+                mMouseRectangle.Y = Mouse.GetState().Position.Y - DGS.MOUSE_HEIGHT / 2;
+
+                if (Mouse.GetState().LeftButton == ButtonState.Pressed)
                 {
-                    if(NodeManager.Instance().CheckMouseClick(Mouse.GetState().Position))
+                    if (mHacksRemaining > 0)
                     {
-                        mHacksRemaining--;
+                        if (NodeManager.Instance().CheckMouseClick(Mouse.GetState().Position))
+                        {
+                            mHacksRemaining--;
+
+                            if (mHacksRemaining == 0) {
+                                this.State = LevelState.Propagating;
+                            }
+                        }
                     }
                 }
             }
+
+            if (State == LevelState.Playing ||
+                State == LevelState.Propagating) {
+                if (NodeManager.Instance().Won())
+                {
+                    this.changeState(LevelState.Won);
+                }
+            }
+
+            if (State == LevelState.Propagating &&
+                timeInState > propagatingTime) {
+                this.changeState(LevelState.Lost);
+            }
+
+            if (State == LevelState.Won &&
+                timeInState > propagatingTime) {
+
+            }
+                
+
             NodeManager.Instance().Update(pSeconds);
             WaveManager.Instance().Update(pSeconds);
-
-
         }
 
         public void Draw(float pSeconds)
@@ -104,7 +146,11 @@ namespace Transmission.World
             mSpriteBatch.Begin();
             mSpriteBatch.Draw(mHacksUIBackground, mHacksUIRect, Color.White);
 
-            mSpriteBatch.Draw(mCursorTexture, mMouseRectangle, Color.White);
+            if (HasFocus)
+            {
+                mSpriteBatch.Draw(mCursorTexture, mMouseRectangle, Color.White);
+            }
+
             mSpriteBatch.DrawString(mFont, mHacksRemaining >= 10 ? mHacksRemaining.ToString() : "0" + mHacksRemaining.ToString(), new Vector2(110, 28), Color.White);
             mSpriteBatch.End();
         }
@@ -125,6 +171,11 @@ namespace Transmission.World
         {
             Transmission.Instance().SM().Pop();
             Transmission.Instance().SM().Push(new LevelFailScene(this));
+        }
+
+        private void changeState(LevelState ls) {
+            this.State = ls;
+            this.timeInState = 0f;
         }
     }
 }

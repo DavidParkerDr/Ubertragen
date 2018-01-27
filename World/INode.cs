@@ -18,5 +18,6 @@ namespace Transmission.World
         void Update(float pSeconds);
 
         void Reset();
+        bool IsWon();
     }
 }

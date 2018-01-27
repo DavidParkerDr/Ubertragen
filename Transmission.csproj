@@ -71,6 +71,7 @@
     <Compile Include="Helpers\SpriteFontHelpers.cs" />
     <Compile Include="Scenes\StageScene.cs" />
     <Compile Include="Scenes\Story\Stage.cs" />
+    <Compile Include="Scenes\WonLevelScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

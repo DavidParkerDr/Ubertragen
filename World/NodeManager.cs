@@ -10,13 +10,13 @@ namespace Transmission.World
 {
     public class NodeManager
     {
-        private List<INode> mNodes;
+        private List<Node> mNodes;
         private static NodeManager mInstance = null;
         private Texture2D mWhiteDisk;
 
         private NodeManager()
         {
-            mNodes = new List<INode>();
+            mNodes = new List<Node>();
             mWhiteDisk = Transmission.Instance().CM().Load<Texture2D>("white_disk");
         }
 
@@ -37,7 +37,7 @@ namespace Transmission.World
             }
         }
 
-        public void AddNode(INode pNode)
+        public void AddNode(Node pNode)
         {
             mNodes.Add(pNode);
         }
@@ -81,6 +81,10 @@ namespace Transmission.World
             {
                 mNodes[i].Reset();
             }
+        }
+
+        public bool Won() {
+            return this.mNodes.All(n => n.IsWon());
         }
     }
 }

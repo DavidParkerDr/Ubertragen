@@ -75,5 +75,10 @@ namespace Transmission.World
                 }
             }
         }
+
+        public override bool IsWon()
+        {
+            return this.State == TransmitterState.HACKED;
+        }
     }
 }

@@ -37,6 +37,8 @@ namespace Transmission.Scenes
 
         public void Update(float pSeconds)
         {
+            mLevel.HasFocus = this == Transmission.Instance().SM().Top;
+
             mLevel.Update(pSeconds);
         }
 

@@ -34,12 +34,14 @@ namespace Transmission.Scenes
         private Rectangle speakerRectangle;
         private Rectangle textBgRectangle;
         private Rectangle textRectangle;
+        private Vector2 clickTextPos;
 
         private State state = State.AnimatingIn;
         private float animationProgress = 0f;
 
         float timeSinceChar = 0f;
         string visibleText = "";
+        float elapsedTime = 0f;
 
         public ConvoScene(string filename)
         {
@@ -70,8 +72,12 @@ namespace Transmission.Scenes
                 textBgRectangle.Top + 10,
                 textBgRectangle.Width - 20,
                 textBgRectangle.Height - 20);
-        }
 
+            clickTextPos = new Vector2(
+                screenWidth * 0.7f,
+                screenHeight * 0.95f
+            );
+        }
 
         public void Draw(float pSeconds)
         {
@@ -89,11 +95,18 @@ namespace Transmission.Scenes
                 textRectangle
             );
 
+            if (state == State.Static) {
+                if ((int)elapsedTime % 2 == 0) {
+                    sb.DrawString(bodyFont, "Click to continue", clickTextPos, Color.White);
+                }
+            }
+
             sb.End();
         }
 
         public void Update(float pSeconds)
         {
+            elapsedTime += pSeconds;
             var mouseState = Mouse.GetState();
 
             timeSinceChar += pSeconds;

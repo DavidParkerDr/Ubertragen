@@ -9,10 +9,11 @@ using Transmission.Helpers;
 
 namespace Transmission.World
 {
-    public abstract class Node : INode
+    public abstract class Node
     {
         protected Color mColour;
         protected Texture2D mTexture;
+
         public Color Colour { get { return mColour; } }
 
         protected Circle Circle { get; private set; }
@@ -33,5 +34,6 @@ namespace Transmission.World
         public abstract void Update(float pSeconds);
 
         public abstract void Reset();
+        public abstract bool IsWon();
     }
 }
