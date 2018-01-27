@@ -54,7 +54,7 @@ namespace Transmission.Scenes
 
             if (mouseState.LeftButton == ButtonState.Pressed) {
                 game.SM().Pop();
-                game.SM().Push(new StoryScene(StoryScene.StoryPart.INTRO));
+                game.SM().Push(new StoryScene("Data/Story/Intro.json"));
             }
         }
     }
