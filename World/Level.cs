@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Transmission;
 using Transmission.Helpers;
+using Transmission.Scenes;
 
 namespace Transmission.World
 {
@@ -108,6 +109,13 @@ namespace Transmission.World
             mSpriteBatch.End();
         }
 
+        public void Reset()
+        {
+            mHacksRemaining = mStartingNumberOfHacks;
+            WaveManager.Instance().Reset();
+            NodeManager.Instance().ResetNodes();
+        }
+
         public void LevelWin()
         {
             throw new NotImplementedException();
@@ -115,7 +123,8 @@ namespace Transmission.World
 
         public void LevelFail()
         {
-            throw new NotImplementedException();
+            Transmission.Instance().SM().Pop();
+            Transmission.Instance().SM().Push(new LevelFailScene(this));
         }
     }
 }

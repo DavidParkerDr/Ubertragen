@@ -22,6 +22,11 @@ namespace Transmission.Scenes
             mLevel = new Level(pLevelFile);
         }
 
+        public GameScene(Level pLevel)
+        {
+            mLevel = pLevel;
+        }
+
         public void Draw(float pSeconds)
         {
             Transmission.Instance().GDM().GraphicsDevice.Clear(DGS.BLACK);

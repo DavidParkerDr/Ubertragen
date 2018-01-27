@@ -20,8 +20,7 @@ namespace Transmission.World
 
         public Transmitter(int pX, int pY, Color pColour):base(pColour, new Circle(new Point(pX - DGS.TRANSMITTER_RADIUS / 2, pY - DGS.TRANSMITTER_RADIUS / 2), DGS.TRANSMITTER_RADIUS), Transmission.Instance().CM().Load<Texture2D>("white_disk"))
         {
-            State = TransmitterState.NORMAL;
-            mTimeToWave = 0;
+            Reset();
         }
 
         public void HackTransmitter()
@@ -35,6 +34,12 @@ namespace Transmission.World
          /*   mColour.R = (byte)(Math.Min(mColour.R + pColour.R, 255));
             mColour.G = (byte)(Math.Min(mColour.G + pColour.G, 255));
             mColour.B = (byte)(Math.Min(mColour.B + pColour.B, 255)); */
+        }
+
+        public override void Reset()
+        {
+            State = TransmitterState.NORMAL;
+            mTimeToWave = 0;
         }
 
         public override bool MouseClick(Point pPosition)

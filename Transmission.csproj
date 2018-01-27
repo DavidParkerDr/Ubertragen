@@ -46,6 +46,7 @@
     <Compile Include="Helpers\Circle.cs" />
     <Compile Include="Helpers\RectHelpers.cs" />
     <Compile Include="Helpers\StringHelpers.cs" />
+    <Compile Include="Scenes\LevelFailScene.cs" />
     <Compile Include="SoundManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -19,6 +19,11 @@ namespace Transmission.World
 
         public Absorber(int pX, int pY):base(Color.DarkOrange, new Circle(new Point(pX - DGS.TRANSMITTER_RADIUS / 2, pY - DGS.TRANSMITTER_RADIUS / 2), DGS.TRANSMITTER_RADIUS), Transmission.Instance().CM().Load<Texture2D>("absorber"))
         {
+            Reset();
+        }
+
+        public override void Reset()
+        {
             State = TransmitterState.NORMAL;
             mTimeToWave = 0;
         }

@@ -34,6 +34,11 @@ namespace Transmission.World
             mWaves.Add(new Wave(pPosition, pColour));
         }
 
+        public void Reset()
+        {
+            mWaves.Clear();
+        }
+
         public void Update(float pSeconds)
         {
             for (int i = 0; i < mWaves.Count; i++)

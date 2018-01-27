@@ -74,5 +74,13 @@ namespace Transmission.World
             }
             return false;
         }
+
+        public void ResetNodes()
+        {
+            for (int i = 0; i < mNodes.Count; i++)
+            {
+                mNodes[i].Reset();
+            }
+        }
     }
 }

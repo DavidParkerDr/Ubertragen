@@ -16,5 +16,7 @@ namespace Transmission.World
         void IntersectCheck(Wave pWave);
         bool MouseClick(Point pPosition);
         void Update(float pSeconds);
+
+        void Reset();
     }
 }

@@ -31,5 +31,7 @@ namespace Transmission.World
         public abstract void IntersectCheck(Wave pWave);
         public abstract bool MouseClick(Point pPosition);
         public abstract void Update(float pSeconds);
+
+        public abstract void Reset();
     }
 }
