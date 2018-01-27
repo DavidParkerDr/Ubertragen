@@ -80,10 +80,10 @@ namespace Transmission.World
                         nodeManager.AddNode(new Transmitter(int.Parse(values[1]), int.Parse(values[2]), values[3].ToColour()));
                         break;
                     case "unhackable":
-                        nodeManager.AddNode(new Unhackable(int.Parse(values[1]), int.Parse(values[2])));
+                        nodeManager.AddNode(new Unhackable(int.Parse(values[1]), int.Parse(values[2]), values[3].ToColour()));
                         break;
                     case "absorber":
-                        nodeManager.AddNode(new Absorber(int.Parse(values[1]), int.Parse(values[2])));
+                        nodeManager.AddNode(new Absorber(int.Parse(values[1]), int.Parse(values[2]), values[3].ToColour()));
                         break;
                     case "mover":
                         break;

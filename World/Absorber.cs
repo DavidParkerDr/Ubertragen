@@ -17,7 +17,7 @@ namespace Transmission.World
 
         private float mTimeToWave;
 
-        public Absorber(int pX, int pY):base(Color.DarkOrange, new Circle(new Point(pX - DGS.TRANSMITTER_RADIUS / 2, pY - DGS.TRANSMITTER_RADIUS / 2), DGS.TRANSMITTER_RADIUS), Transmission.Instance().CM().Load<Texture2D>("absorber"))
+        public Absorber(int pX, int pY, Color pColour):base(pColour, new Circle(new Point(pX - DGS.TRANSMITTER_RADIUS / 2, pY - DGS.TRANSMITTER_RADIUS / 2), DGS.TRANSMITTER_RADIUS), Transmission.Instance().CM().Load<Texture2D>("absorber"))
         {
             Reset();
         }
@@ -28,19 +28,6 @@ namespace Transmission.World
             mTimeToWave = 0;
         }
 
-        public void HackTransmitter()
-        {
-            State = TransmitterState.HACKED;
-        }
-
-        public void HackTransmitter(Color pColour)
-        {
-            State = TransmitterState.HACKED;
-            mColour.R = (byte)(Math.Min(mColour.R + pColour.R, 255));
-            mColour.G = (byte)(Math.Min(mColour.G + pColour.G, 255));
-            mColour.B = (byte)(Math.Min(mColour.B + pColour.B, 255));
-        }
-
         public override bool MouseClick(Point pPosition)
         {
             // TODO Play Donk Sound
@@ -49,7 +36,7 @@ namespace Transmission.World
 
         public override void IntersectCheck(Wave pWave)
         {
-            if (Circle.Intersects(pWave.Circle))
+            if (Circle.Intersects(pWave.Circle) && pWave.Colour == mColour)
             {
                 pWave.AbsorbWave();
             }

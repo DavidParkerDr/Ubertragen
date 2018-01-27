@@ -17,7 +17,7 @@ namespace Transmission.World
 
         private float mTimeToWave;
 
-        public Unhackable(int pX, int pY):base(Color.SlateGray, new Circle(new Point(pX - DGS.TRANSMITTER_RADIUS / 2, pY - DGS.TRANSMITTER_RADIUS / 2), DGS.TRANSMITTER_RADIUS), Transmission.Instance().CM().Load<Texture2D>("unhackable"))
+        public Unhackable(int pX, int pY, Color pColour):base(pColour, new Circle(new Point(pX - DGS.TRANSMITTER_RADIUS / 2, pY - DGS.TRANSMITTER_RADIUS / 2), DGS.TRANSMITTER_RADIUS), Transmission.Instance().CM().Load<Texture2D>("unhackable"))
         {
             Reset();
         }
@@ -29,10 +29,10 @@ namespace Transmission.World
 
         public void HackTransmitter(Color pColour)
         {
-            State = TransmitterState.HACKED;
-            mColour.R = (byte)(Math.Min(mColour.R + pColour.R, 255));
-            mColour.G = (byte)(Math.Min(mColour.G + pColour.G, 255));
-            mColour.B = (byte)(Math.Min(mColour.B + pColour.B, 255));
+            if (pColour == mColour)
+            {
+                State = TransmitterState.HACKED;
+            }
         }
 
         public override void Reset()
