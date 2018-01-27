@@ -86,5 +86,9 @@ namespace Transmission.World
         public bool Won() {
             return this.mNodes.All(n => n.IsWon());
         }
+
+        public void ResetManager() {
+            this.mNodes.Clear();
+        }
     }
 }

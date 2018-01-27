@@ -19,7 +19,7 @@ namespace Transmission.Scenes
             stage = JsonConvert.DeserializeObject<Stage>(File.ReadAllText(filename));
 
             if (stage.Level != null) {
-                gameScene = new GameScene(stage.Level);
+                gameScene = new GameScene(stage);
                 sm.Push(gameScene);
             }
 

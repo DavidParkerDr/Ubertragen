@@ -10,16 +10,20 @@ using Microsoft.Xna.Framework.Graphics;
 
 using Microsoft.Xna.Framework.Input;
 using Transmission.World;
+using Transmission.Scenes.Story;
 
 namespace Transmission.Scenes
 {
     public class GameScene : IScene
     {
+        public Stage stage;
         Level mLevel;
 
-        public GameScene(string pLevelFile)
+        public GameScene(Stage stage)
         {
-            mLevel = new Level(pLevelFile);
+            this.stage = stage;
+
+            mLevel = new Level(this, stage.Level);
         }
 
         public GameScene(Level pLevel)

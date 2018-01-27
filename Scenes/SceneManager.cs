@@ -79,9 +79,6 @@ namespace Transmission.Scenes
 
             switch (nextScene.Type)
             {
-                case "game":
-                    newScene = new GameScene(nextScene.File);
-                    break;
                 case "story":
                     newScene = new StoryScene(nextScene.File);
                     break;
@@ -94,7 +91,7 @@ namespace Transmission.Scenes
 
             this.Push(newScene);
         }
-
+        /*
         public void GotoStage(string stageFile) {
             var stage = JsonConvert.DeserializeObject<Stage>(File.ReadAllText(stageFile));
 
@@ -109,6 +106,6 @@ namespace Transmission.Scenes
                 var convoScene = new ConvoScene(stage.Convo);
                 this.Push(convoScene);
             }
-        }
+        }*/
     }
 }

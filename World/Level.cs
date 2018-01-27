@@ -26,6 +26,7 @@ namespace Transmission.World
         private float propagatingTime = 5f;
 
         IGame game;
+        GameScene scene;
         private Texture2D mCursorTexture;
         private Rectangle mMouseRectangle;
         private Texture2D mWhiteCircle;
@@ -41,8 +42,10 @@ namespace Transmission.World
         private float timeInState;
         public bool HasFocus { get; set; }
 
-        public Level(string pFileName)
+        public Level(GameScene scene, string pFileName)
         {
+            this.scene = scene;
+
             game = Transmission.Instance();
 
             mCursorTexture = game.CM().Load<Texture2D>("pixel");
@@ -60,11 +63,17 @@ namespace Transmission.World
             mStartingNumberOfHacks = int.Parse(firstLine.Substring(firstLine.IndexOf(':') + 1));
             mHacksRemaining = mStartingNumberOfHacks;
             this.State = LevelState.Playing;
+
+            NodeManager nodeManager = NodeManager.Instance();
+            nodeManager.ResetManager();
+            WaveManager.Instance().Reset();
+
+
             while(!reader.EndOfStream)
             {
                 string line = reader.ReadLine();
                 string[] values = line.Split(',');
-                NodeManager nodeManager = NodeManager.Instance();
+        
                 switch (values[0].ToLower().Trim())
                 {
                     case "transmitter":
@@ -126,7 +135,8 @@ namespace Transmission.World
             }
 
             if (State == LevelState.Won &&
-                timeInState > propagatingTime) {
+                timeInState > propagatingTime &&
+                this.HasFocus) {
                 this.LevelWin();
             }
                 
@@ -171,7 +181,7 @@ namespace Transmission.World
 
         public void LevelWin()
         {
-            game.SM().Push(new WonLevelScene());
+            game.SM().Push(new WonLevelScene(scene));
         }
 
         public void LevelFail()
