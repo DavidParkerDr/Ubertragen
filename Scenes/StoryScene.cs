@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Newtonsoft.Json;
+using Transmission.Helpers;
 using Transmission.Scenes.Story;
 
 namespace Transmission.Scenes
@@ -45,27 +46,12 @@ namespace Transmission.Scenes
 
             spriteBatch.Begin();
 
-            string textToRender = visibleText;
-
-            int line = 0;
-
-            while (textToRender.Length > 0)
-            {
-                int c = 0;
-
-                while (c < textToRender.Length && bodyFont.MeasureString(textToRender.Substring(0, c)).X < visibleWidth)
-                {
-                    c++;
-                }
-
-                if (c != 0)
-                {
-                    spriteBatch.DrawString(bodyFont, textToRender.Substring(0, c), new Vector2(40, 280 + (line * lineHeight)), Color.White);
-                }
-
-                line++;
-                textToRender = textToRender.Substring(c);
-            }
+            SpriteFontHelpers.RenderTextWithWrapping(
+                spriteBatch,
+                bodyFont,
+                lineHeight,
+                visibleText,
+                new Rectangle(40, 280, 560, 0));
 
             spriteBatch.End();
         }

@@ -20,6 +20,20 @@
 /processorParam:TextureFormat=Compressed
 /build:Fonts/8BitLimit.spritefont
 
+#begin Fonts/Eurostile.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Eurostile.spritefont
+
+#begin Fonts/EurostileBold.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/EurostileBold.spritefont
+
 #begin Fonts/PressStart2P.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
@@ -63,7 +77,7 @@
 /processorParam:TextureFormat=Color
 /build:Title/click.png
 
-#begin Title/title.png
+#begin Title/Cover.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -73,7 +87,19 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Title/title.png
+/build:Title/Cover.png
+
+#begin Title/Title.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Title/Title.png
 
 #begin white_circle.png
 /importer:TextureImporter

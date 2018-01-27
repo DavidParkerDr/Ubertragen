@@ -63,6 +63,11 @@
     <Compile Include="Scenes\TitleScene.cs" />
     <Compile Include="Scenes\StoryScene.cs" />
     <Compile Include="Scenes\Story\StoryPage.cs" />
+    <Compile Include="Scenes\ConvoScene.cs" />
+    <Compile Include="Scenes\Story\Convo.cs" />
+    <Compile Include="Helpers\SpriteFontHelpers.cs" />
+    <Compile Include="Scenes\StageScene.cs" />
+    <Compile Include="Scenes\Story\Stage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -99,6 +104,14 @@
     <None Include="Content\Fonts\8BitLimit.spritefont" />
     <None Include="Content\Fonts\8BitLimit.ttf" />
     <None Include="Data\Story\Intro.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Folder Include="Data\Convos\" />
+    <None Include="Data\Convos\test.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Folder Include="Data\Stages\" />
+    <None Include="Data\Stages\01.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

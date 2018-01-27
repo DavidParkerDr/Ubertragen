@@ -10,26 +10,46 @@ namespace Transmission.Scenes
         IGame game = Transmission.Instance();
 
         SpriteBatch spriteBatch;
+        Texture2D coverTexture;
         Texture2D titleTexture;
         Texture2D clickTexture;
-        Point titleSize = new Point(500, 77);
         Point clickSize = new Point(500, 77);
 
+        SpriteFont font;
+
+        Rectangle coverRectangle;
         Rectangle titleRectangle;
-        Rectangle clickRectangle;
+        Vector2 clickLocation;
         float elapsedTime = 0;
+
+        string clickText = "Click here to start";
 
         public TitleScene()
         {
             this.spriteBatch = new SpriteBatch(game.GDM().GraphicsDevice);
-            this.titleTexture = game.CM().Load<Texture2D>("Title/title");
+            this.titleTexture = game.CM().Load<Texture2D>("Title/Title");
+            this.coverTexture = game.CM().Load<Texture2D>("Title/Cover");
             this.clickTexture = game.CM().Load<Texture2D>("Title/click");
+
+            font = game.CM().Load<SpriteFont>("Fonts/Eurostile");
 
             int screenWidth = game.GDM().GraphicsDevice.Viewport.Width;
             int screenHeight = game.GDM().GraphicsDevice.Viewport.Height;
 
-            titleRectangle = new Rectangle((int)((screenWidth - titleSize.X) / 2f), (int)(screenHeight * 0.1f), titleSize.X, titleSize.Y);
-            clickRectangle = new Rectangle((int)((screenWidth - clickSize.X) / 2f), (int)(screenHeight * 0.8f), clickSize.X, clickSize.Y);
+            coverRectangle = new Rectangle(0, 0, screenWidth, screenHeight);
+
+            var desiredTitleWidth = screenWidth * 0.8f;
+            var titleScale =  desiredTitleWidth/ titleTexture.Width; 
+            titleRectangle = new Rectangle(
+                (int)(screenWidth * 0.1f), 
+                (int)(screenHeight * 0.1f), 
+                (int)(titleTexture.Width * titleScale),
+                (int)(titleTexture.Height * titleScale));
+
+            var clickTextSize = font.MeasureString(clickText);
+            clickLocation = new Vector2(
+                ((screenWidth - clickTextSize.X) / 2f), 
+                (screenHeight * 0.8f));
         }
 
         public void Draw(float pSeconds)
@@ -38,10 +58,13 @@ namespace Transmission.Scenes
 
             spriteBatch.Begin();
 
+            spriteBatch.Draw(coverTexture, coverRectangle, Color.White);
+
+
             spriteBatch.Draw(titleTexture, titleRectangle, Color.White);
 
             if ((int)elapsedTime % 2 == 0)
-                spriteBatch.Draw(clickTexture, clickRectangle, Color.White);
+                spriteBatch.DrawString(font, clickText, clickLocation, Color.White);
 
             spriteBatch.End();
         }

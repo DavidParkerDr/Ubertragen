@@ -57,14 +57,15 @@ namespace Transmission.Scenes
 
         public void Draw(float pSeconds)
         {
-            if (Count > 0)
-            {
-                Top.Draw(pSeconds);
+            for (var i = mScenes.Count - 1; i >= 0;i--) {
+                mScenes[i].Draw(pSeconds);
             }
         }
 
         public void GotoScene(NextScene nextScene) {
             var newScene = default(IScene);
+
+            this.Pop();
 
             switch (nextScene.Type)
             {
@@ -74,11 +75,13 @@ namespace Transmission.Scenes
                 case "story":
                     newScene = new StoryScene(nextScene.File);
                     break;
+                case "stage":
+                    newScene = new StageScene(nextScene.File);
+                    break;
                 default:
                     throw new InvalidOperationException("Unknown scene type");
             }
 
-            this.Pop();
             this.Push(newScene);
         }
     }

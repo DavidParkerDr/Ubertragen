@@ -20,6 +20,8 @@ namespace Transmission.Scenes
         public GameScene(string pLevelFile)
         {
             mLevel = new Level(pLevelFile);
+
+            Transmission.Instance().SM().Push(new ConvoScene("Data/Convos/test.json"));
         }
 
 
