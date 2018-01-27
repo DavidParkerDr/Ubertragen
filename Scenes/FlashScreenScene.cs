@@ -35,7 +35,7 @@ namespace Transmission.Scenes
             {
                 IGame game = Transmission.Instance();
                 game.SM().Pop();
-                game.SM().Push(new StartScene()); //GameScene());
+                game.SM().Push(new TitleScene()); //GameScene());
             }
         }
         public void Draw(float pSeconds)
