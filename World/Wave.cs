@@ -11,6 +11,8 @@ namespace Transmission.World
     public class Wave
     {
         private Rectangle mRectangle;
+        
+        public Color Colour { get; private set; }
 
         public Rectangle Rect {  get { return mRectangle; } }
 
@@ -19,11 +21,12 @@ namespace Transmission.World
         public float Speed { get; private set; }
         public Circle Circle { get { return mCircle; } }
 
-        public Wave(Point pPosition)
+        public Wave(Point pPosition, Color pColour)
         {
             LifeLeft = DGS.WAVE_LIFETIME;
             Speed = DGS.WAVE_SPEED;
             mCircle = new Circle(pPosition, 0);
+            Colour = pColour;
         }
 
         public void Update(float pSeconds)

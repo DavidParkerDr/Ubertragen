@@ -35,7 +35,7 @@ namespace Transmission.World
             {
                 if(pWave.Circle.Intersects(mTransmitters[i].Circle))
                 {
-                    mTransmitters[i].HackTransmitter();
+                    mTransmitters[i].HackTransmitter(pWave.Colour);
                 }
             }
         }
@@ -47,11 +47,9 @@ namespace Transmission.World
 
         public void Draw(SpriteBatch pSpriteBatch, float pSeconds)
         {
-            Color color;
             for (int i = 0; i < mTransmitters.Count; i++)
             {
-                color = mTransmitters[i].State == Transmitter.TransmitterState.NORMAL ? Color.Goldenrod : Color.OrangeRed;
-                pSpriteBatch.Draw(mWhiteDisk, mTransmitters[i].Rect, color);
+                pSpriteBatch.Draw(mWhiteDisk, mTransmitters[i].Rect, mTransmitters[i].Colour);
             }
         }
 
@@ -69,7 +67,7 @@ namespace Transmission.World
             {
                 if (mTransmitters[i].Circle.Intersects(pPosition))
                 {
-                    mTransmitters[i].HackTransmitter();
+                    mTransmitters[i].HackTransmitter(Color.Red);
                 }
             }
         }

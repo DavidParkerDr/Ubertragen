@@ -40,7 +40,7 @@ namespace Transmission.World
                 switch (values[0].ToLower())
                 {
                     case "transmitter":
-                        transmitterManager.AddTransmitter(new Transmitter(int.Parse(values[1]), int.Parse(values[2])));
+                        transmitterManager.AddTransmitter(new Transmitter(int.Parse(values[1]), int.Parse(values[2]), values[3].ToColour()));
                         break;
                     default:
                         throw new Exception("Unrecognised token " + values[0] + " in " + pFileName);

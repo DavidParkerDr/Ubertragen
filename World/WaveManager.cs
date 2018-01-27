@@ -29,9 +29,9 @@ namespace Transmission.World
             return mInstance;
         }
 
-        public void AddWave(Point pPosition)
+        public void AddWave(Point pPosition, Color pColour)
         {
-            mWaves.Add(new Wave(pPosition));
+            mWaves.Add(new Wave(pPosition, pColour));
         }
 
         public void Update(float pSeconds)
@@ -55,7 +55,7 @@ namespace Transmission.World
         {
             for (int i = 0; i < mWaves.Count; i++)
             {
-                pSpriteBatch.Draw(mWhiteCircle, mWaves[i].Rect, Color.Red);
+                pSpriteBatch.Draw(mWhiteCircle, mWaves[i].Rect, mWaves[i].Colour);
             }
         }
     }
