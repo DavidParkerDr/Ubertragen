@@ -58,7 +58,7 @@ namespace Transmission
             this.Window.Title = "Transmission";
         }
 
-        
+
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -83,7 +83,7 @@ namespace Transmission
             mBatch = new SpriteBatch(GraphicsDevice);
 
 
-            mSceneManager.Push(new GameScene("Content/Levels/LevelOne.txt"));
+            mSceneManager.Push(new FlashScreenScene());
 
             // TODO: use this.Content to load your game content here
         }
@@ -106,7 +106,7 @@ namespace Transmission
         {
             float seconds = 0.001f * gameTime.ElapsedGameTime.Milliseconds;
             mSceneManager.Update(seconds);
-            
+
             base.Update(gameTime);
         }
 
@@ -116,7 +116,7 @@ namespace Transmission
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-           
+
             float seconds = 0.001f * gameTime.ElapsedGameTime.Milliseconds;
             mSceneManager.Draw(seconds);
             base.Draw(gameTime);
