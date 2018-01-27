@@ -72,10 +72,14 @@ namespace Transmission.Scenes
         public void Update(float pSeconds)
         {
             elapsedTime += pSeconds;
+        }
+
+        public void HandleInput(float pSeconds) {
 
             var mouseState = Mouse.GetState();
 
-            if (mouseState.LeftButton == ButtonState.Pressed) {
+            if (mouseState.LeftButton == ButtonState.Pressed)
+            {
                 game.SM().Pop();
                 game.SM().Push(new StoryScene("Data/Story/Intro.json"));
             }

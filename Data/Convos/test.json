@@ -3,6 +3,10 @@
     {
       "speaker": "bird",
       "text": "Hello."
+    },
+    {
+      "speaker": "bird",
+      "text": "Hello. Again..."
     }
   ]
 }

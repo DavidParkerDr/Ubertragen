@@ -84,8 +84,6 @@ namespace Transmission
 
 
             mSceneManager.Push(new FlashScreenScene());
-
-            // TODO: use this.Content to load your game content here
         }
 
         /// <summary>

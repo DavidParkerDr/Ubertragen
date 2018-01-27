@@ -64,7 +64,10 @@ namespace Transmission.Scenes
                 timeSinceChar = 0;
                 visibleText = page.Text.Substring(0, visibleText.Length + 1);
             }
+        }
 
+        public void HandleInput(float pSeconds)
+        {
             var mouseState = Mouse.GetState();
 
             if (mouseState.LeftButton == ButtonState.Pressed)

@@ -38,6 +38,12 @@ namespace Transmission.Scenes
                 game.SM().Push(new TitleScene()); //GameScene());
             }
         }
+
+        public void HandleInput(float pSeconds)
+        {
+            
+        }
+
         public void Draw(float pSeconds)
         {
             Transmission.Instance().GDM().GraphicsDevice.Clear(Color.Black);

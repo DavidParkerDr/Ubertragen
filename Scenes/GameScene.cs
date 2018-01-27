@@ -20,10 +20,7 @@ namespace Transmission.Scenes
         public GameScene(string pLevelFile)
         {
             mLevel = new Level(pLevelFile);
-
-            Transmission.Instance().SM().Push(new ConvoScene("Data/Convos/test.json"));
         }
-
 
         public void Draw(float pSeconds)
         {
@@ -35,15 +32,16 @@ namespace Transmission.Scenes
 
         public void Update(float pSeconds)
         {
-            if(Keyboard.GetState().IsKeyDown(Keys.Escape))
-            {
-                Transmission.Instance().Exit();
-            }
-
             mLevel.Update(pSeconds);
         }
 
-    
+        public void HandleInput(float pSeconds)
+        {
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
+                Transmission.Instance().Exit();
+            }
+        }
     }
 }
 

@@ -35,9 +35,15 @@ namespace Transmission.Scenes
 
         public void Update(float pSeconds)
         {
-            // hack to fix David's feature
-            gameScene.Update(pSeconds);
-            // end of hack
+            if (convoScene != null) {
+                convoScene.Update(pSeconds);
+            } else {
+                gameScene.Update(pSeconds);
+            }
+        }
+
+        public void HandleInput(float pSeconds)
+        {
         }
     }
 }

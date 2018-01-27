@@ -23,7 +23,7 @@ namespace Transmission.Helpers
 
                 if (c != 0)
                 {
-                    batch.DrawString(font, textToRender.Substring(0, c), new Vector2(40, 280 + (line * lineHeight)), Color.White);
+                    batch.DrawString(font, textToRender.Substring(0, c), new Vector2(rect.Left, rect.Top + (line * lineHeight)), Color.White);
                 }
 
                 line++;

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Transmission.Scenes.Story;
 
 namespace Transmission.Scenes
@@ -10,6 +12,7 @@ namespace Transmission.Scenes
     public class SceneManager
     {
         private List<IScene> mScenes;
+        private List<IScene> mScenesToAdd;
 
         public SceneManager()
         {
@@ -49,16 +52,23 @@ namespace Transmission.Scenes
 
         public void Update(float pSeconds)
         {
+            var scenes = new List<IScene>(mScenes);
+
+            foreach (var scene in scenes)
+            {
+                scene.Update(pSeconds);
+            }
+
             if (Count > 0)
             {
-                Top.Update(pSeconds);
+                Top.HandleInput(pSeconds);
             }
         }
 
         public void Draw(float pSeconds)
         {
-            for (var i = mScenes.Count - 1; i >= 0;i--) {
-                mScenes[i].Draw(pSeconds);
+            foreach (var scene in mScenes) {
+                scene.Draw(pSeconds);
             }
         }
 
@@ -83,6 +93,22 @@ namespace Transmission.Scenes
             }
 
             this.Push(newScene);
+        }
+
+        public void GotoStage(string stageFile) {
+            var stage = JsonConvert.DeserializeObject<Stage>(File.ReadAllText(stageFile));
+
+            if (stage.Level != null)
+            {
+                var gameScene = new GameScene(stage.Level);
+                this.Push(gameScene);
+            }
+
+            if (stage.Convo != null)
+            {
+                var convoScene = new ConvoScene(stage.Convo);
+                this.Push(convoScene);
+            }
         }
     }
 }

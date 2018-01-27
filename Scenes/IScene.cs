@@ -10,5 +10,7 @@ namespace Transmission.Scenes
     {
         void Draw(float pSeconds);
         void Update(float pSeconds);
+
+        void HandleInput(float pSeconds);
     }
 }
