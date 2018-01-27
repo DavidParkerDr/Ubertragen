@@ -22,7 +22,6 @@ namespace Transmission.World
         {
             State = TransmitterState.NORMAL;
             mTimeToWave = 0;
-            mColour = pColour;
         }
 
         public void HackTransmitter()
@@ -38,12 +37,17 @@ namespace Transmission.World
             mColour.B = (byte)(Math.Min(mColour.B + pColour.B, 255));
         }
 
-        public override void MouseClick(Point pPosition)
+        public override bool MouseClick(Point pPosition)
         {
-            if(Circle.Intersects(pPosition))
+            if (State != TransmitterState.HACKED)
             {
-                HackTransmitter();
+                if (Circle.Intersects(pPosition))
+                {
+                    HackTransmitter();
+                    return true;
+                }
             }
+            return false;
         }
 
         public override void IntersectCheck(Wave pWave)

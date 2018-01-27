@@ -19,6 +19,8 @@ namespace Transmission.World
         private Texture2D mWhiteCircle;
         private Texture2D mWhiteDisk;
         private SpriteBatch mSpriteBatch;
+        private int mStartingNumberOfHacks;
+        private int mHacksRemaining;
 
         public Level(string pFileName)
         {
@@ -32,15 +34,27 @@ namespace Transmission.World
 
             StreamReader reader = new StreamReader(pFileName);
 
+            string firstLine = reader.ReadLine();
+
+            mStartingNumberOfHacks = int.Parse(firstLine.Substring(firstLine.IndexOf(':') + 1));
+            mHacksRemaining = mStartingNumberOfHacks;
             while(!reader.EndOfStream)
             {
                 string line = reader.ReadLine();
                 string[] values = line.Split(',');
-                NodeManager transmitterManager = NodeManager.Instance();
-                switch (values[0].ToLower())
+                NodeManager nodeManager = NodeManager.Instance();
+                switch (values[0].ToLower().Trim())
                 {
                     case "transmitter":
-                        transmitterManager.AddNode(new Transmitter(int.Parse(values[1]), int.Parse(values[2]), values[3].ToColour()));
+                        nodeManager.AddNode(new Transmitter(int.Parse(values[1]), int.Parse(values[2]), values[3].ToColour()));
+                        break;
+                    case "unhackable":
+                        nodeManager.AddNode(new Unhackable(int.Parse(values[1]), int.Parse(values[2])));
+                        break;
+                    case "absorber":
+                        nodeManager.AddNode(new Absorber(int.Parse(values[1]), int.Parse(values[2])));
+                        break;
+                    case "mover":
                         break;
                     default:
                         throw new Exception("Unrecognised token " + values[0] + " in " + pFileName);
@@ -56,9 +70,15 @@ namespace Transmission.World
             mMouseRectangle.X = Mouse.GetState().Position.X - DGS.MOUSE_WIDTH / 2;
             mMouseRectangle.Y = Mouse.GetState().Position.Y - DGS.MOUSE_HEIGHT / 2;
 
-            if(Mouse.GetState().LeftButton == ButtonState.Pressed)
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
-                NodeManager.Instance().CheckMouseClick(Mouse.GetState().Position);
+                if (mHacksRemaining > 0)
+                {
+                    if(NodeManager.Instance().CheckMouseClick(Mouse.GetState().Position))
+                    {
+                        mHacksRemaining--;
+                    }
+                }
             }
             NodeManager.Instance().Update(pSeconds);
             WaveManager.Instance().Update(pSeconds);
@@ -66,9 +86,7 @@ namespace Transmission.World
 
         public void Draw(float pSeconds)
         {
-            mSpriteBatch.Begin();
-
-            Color color = Color.Goldenrod;
+            mSpriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.NonPremultiplied);
 
             WaveManager.Instance().Draw(mSpriteBatch, pSeconds);
 
@@ -78,6 +96,11 @@ namespace Transmission.World
             mSpriteBatch.Draw(mCursorTexture, mMouseRectangle, Color.White);
 
             mSpriteBatch.End();
+        }
+
+        public bool LevelComplete()
+        {
+            throw new NotImplementedException();
         }
     }
 }

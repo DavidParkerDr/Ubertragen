@@ -53,11 +53,13 @@
     <Compile Include="Scenes\IScene.cs" />
     <Compile Include="Scenes\FlashScreenScene.cs" />
     <Compile Include="Scenes\SceneManager.cs" />
+    <Compile Include="World\Absorber.cs" />
     <Compile Include="World\INode.cs" />
     <Compile Include="World\Level.cs" />
     <Compile Include="World\Node.cs" />
     <Compile Include="World\Transmitter.cs" />
     <Compile Include="World\NodeManager.cs" />
+    <Compile Include="World\Unhackable.cs" />
     <Compile Include="World\Wave.cs" />
     <Compile Include="World\WaveManager.cs" />
     <Compile Include="Scenes\TitleScene.cs" />
@@ -84,6 +86,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Levels\LevelOne.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\LevelThree.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\LevelTwo.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\pixel.png" />

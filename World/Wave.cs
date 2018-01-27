@@ -11,8 +11,9 @@ namespace Transmission.World
     public class Wave
     {
         private Rectangle mRectangle;
-        
-        public Color Colour { get; private set; }
+        private Color mColour;
+
+        public Color Colour { get { return mColour; } }
 
         public Rectangle Rect {  get { return mRectangle; } }
 
@@ -26,17 +27,28 @@ namespace Transmission.World
             LifeLeft = DGS.WAVE_LIFETIME;
             Speed = DGS.WAVE_SPEED;
             mCircle = new Circle(pPosition, 0);
-            Colour = pColour;
+            mColour = pColour;
         }
 
         public void Update(float pSeconds)
         {
             mCircle.Radius += Speed * pSeconds;
             LifeLeft -= pSeconds;
+
+            if(LifeLeft < DGS.WAVE_LIFETIME * 0.25)
+            {
+                mColour.A = (byte)(255 * (LifeLeft / (DGS.WAVE_LIFETIME * 0.25f)));
+            }
+
             mRectangle.Width = (int)(mCircle.Radius * 2);
             mRectangle.Height = (int)(mCircle.Radius * 2);
             mRectangle.X = (int)(mCircle.Position.X - mCircle.Radius);
             mRectangle.Y = (int)(mCircle.Position.Y - mCircle.Radius);
+        }
+
+        public void AbsorbWave()
+        {
+            LifeLeft = 0;
         }
     }
 }

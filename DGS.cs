@@ -14,7 +14,7 @@ namespace Transmission
 
         public const int TRANSMITTER_RADIUS = 5;
 
-        public const float WAVE_LIFETIME = 2.0f;
+        public const float WAVE_LIFETIME = 1.0f;
         public const float WAVE_SPEED = 100.0f;
         public const float TIME_BETWEEN_WAVES = 0.5f;
     }
