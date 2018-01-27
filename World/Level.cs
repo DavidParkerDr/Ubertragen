@@ -16,19 +16,19 @@ namespace Transmission.World
     {
         private Texture2D mCursorTexture;
         private Rectangle mMouseRectangle;
+        private Texture2D mWhiteCircle;
+        private Texture2D mWhiteDisk;
         private SpriteBatch mSpriteBatch;
-
-        private List<Transmitter> mTransmitters;
 
         public Level(string pFileName)
         {
             IGame game = Transmission.Instance();
 
             mCursorTexture = game.CM().Load<Texture2D>("pixel");
+            mWhiteCircle = game.CM().Load<Texture2D>("white_circle");
+            mWhiteDisk = game.CM().Load<Texture2D>("white_disk");
             mMouseRectangle = new Rectangle(0, 0, DGS.MOUSE_WIDTH, DGS.MOUSE_HEIGHT);
             mSpriteBatch = new SpriteBatch(game.GDM().GraphicsDevice);
-
-            mTransmitters = new List<Transmitter>();
 
             StreamReader reader = new StreamReader(pFileName);
 
@@ -36,10 +36,11 @@ namespace Transmission.World
             {
                 string line = reader.ReadLine();
                 string[] values = line.Split(',');
+                TransmitterManager transmitterManager = TransmitterManager.Instance();
                 switch (values[0].ToLower())
                 {
                     case "transmitter":
-                        mTransmitters.Add(new Transmitter(int.Parse(values[1]), int.Parse(values[2])));
+                        transmitterManager.AddTransmitter(new Transmitter(int.Parse(values[1]), int.Parse(values[2])));
                         break;
                     default:
                         throw new Exception("Unrecognised token " + values[0] + " in " + pFileName);
@@ -57,15 +58,10 @@ namespace Transmission.World
 
             if(Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
-                for(int i = 0; i < mTransmitters.Count; i++)
-                {
-                    if(mTransmitters[i].Rect.IsInside(Mouse.GetState().Position))
-                    {
-                        mTransmitters[i].HackTransmitter();
-                    }
-                }
+                TransmitterManager.Instance().CheckMouseClick(Mouse.GetState().Position);
             }
-
+            TransmitterManager.Instance().Update(pSeconds);
+            WaveManager.Instance().Update(pSeconds);
         }
 
         public void Draw(float pSeconds)
@@ -74,11 +70,10 @@ namespace Transmission.World
 
             Color color = Color.Goldenrod;
 
-            for(int i = 0; i < mTransmitters.Count; i++)
-            {
-                color = mTransmitters[i].State == Transmitter.TransmitterState.NORMAL ? Color.Goldenrod : Color.OrangeRed;
-                mSpriteBatch.Draw(mCursorTexture, mTransmitters[i].Rect, color);
-            }
+            WaveManager.Instance().Draw(mSpriteBatch, pSeconds);
+
+            TransmitterManager.Instance().Draw(mSpriteBatch, pSeconds);
+
 
             mSpriteBatch.Draw(mCursorTexture, mMouseRectangle, Color.White);
 

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DGS.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Helpers\Circle.cs" />
     <Compile Include="Helpers\RectHelpers.cs" />
     <Compile Include="Scenes\GameOverScene.cs" />
     <Compile Include="SoundManager.cs" />
@@ -57,6 +58,9 @@
     <Compile Include="Scenes\StartScene.cs" />
     <Compile Include="World\Level.cs" />
     <Compile Include="World\Transmitter.cs" />
+    <Compile Include="World\TransmitterManager.cs" />
+    <Compile Include="World\Wave.cs" />
+    <Compile Include="World\WaveManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -71,6 +75,8 @@
     </Content>
     <Content Include="Content\pixel.png" />
     <Content Include="Content\selogo.png" />
+    <Content Include="Content\white_circle.png" />
+    <Content Include="Content\white_disk.png" />
     <Content Include="Icon.ico" />
     <Content Include="todo.txt" />
   </ItemGroup>

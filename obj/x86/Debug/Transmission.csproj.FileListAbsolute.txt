@@ -46,3 +46,5 @@ C:\ggj-2018\bin\Windows\Debug\Transmission.exe
 C:\ggj-2018\bin\Windows\Debug\Transmission.pdb
 C:\ggj-2018\obj\x86\Debug\Transmission.exe
 C:\ggj-2018\obj\x86\Debug\Transmission.pdb
+C:\ggj-2018\bin\Windows\Debug\Content\white_circle.xnb
+C:\ggj-2018\bin\Windows\Debug\Content\white_disk.xnb

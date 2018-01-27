@@ -12,7 +12,10 @@ namespace Transmission
         public const int MOUSE_WIDTH = 10;
         public const int MOUSE_HEIGHT = 10;
 
-        public const int TRANSMITTER_WIDTH = 50;
-        public const int TRANSMITTER_HEIGHT = 50;
+        public const int TRANSMITTER_RADIUS = 25;
+
+        public const float WAVE_LIFETIME = 2.0f;
+        public const float WAVE_SPEED = 100.0f;
+        public const float TIME_BETWEEN_WAVES = 0.5f;
     }
 }
