@@ -25,6 +25,7 @@ namespace Transmission.Scenes
 
         int visibleWidth;
         int lineHeight = 20;
+        Rectangle textRectangle;
 
         public StoryScene(string filename)
         {
@@ -36,6 +37,12 @@ namespace Transmission.Scenes
             this.spriteBatch = new SpriteBatch(game.GDM().GraphicsDevice);
             this.titleFont = game.CM().Load<SpriteFont>("Fonts/8BitLimit");
             this.bodyFont = game.CM().Load<SpriteFont>("Fonts/PressStart2P");
+
+            textRectangle = new Rectangle(
+                40,
+                (int)(screenHeight * 0.6f),
+                screenWidth - 80,
+                (int)(screenHeight * 0.4f));
 
             page = JsonConvert.DeserializeObject<StoryPage>(File.ReadAllText(filename));
         }
@@ -51,7 +58,7 @@ namespace Transmission.Scenes
                 bodyFont,
                 lineHeight,
                 visibleText,
-                new Rectangle(40, 280, 560, 0));
+                textRectangle);
 
             spriteBatch.End();
         }

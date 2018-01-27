@@ -25,6 +25,7 @@ namespace Transmission.World
 
         private float propagatingTime = 5f;
 
+        IGame game;
         private Texture2D mCursorTexture;
         private Rectangle mMouseRectangle;
         private Texture2D mWhiteCircle;
@@ -42,7 +43,7 @@ namespace Transmission.World
 
         public Level(string pFileName)
         {
-            IGame game = Transmission.Instance();
+            game = Transmission.Instance();
 
             mCursorTexture = game.CM().Load<Texture2D>("pixel");
             mWhiteCircle = game.CM().Load<Texture2D>("white_circle");
@@ -126,7 +127,7 @@ namespace Transmission.World
 
             if (State == LevelState.Won &&
                 timeInState > propagatingTime) {
-
+                this.LevelWin();
             }
                 
 
@@ -156,7 +157,8 @@ namespace Transmission.World
                                         mHacksRemaining.ToString() : 
                                         "0" + mHacksRemaining.ToString(), 
                                     new Vector2(110, 28), 
-                                    mHacksRemaining == 0 ? Color.Red : Color.White);
+                                    mHacksRemaining == 0 ? Color.Red : 
+                                    (State == LevelState.Won ? Color.LimeGreen : Color.White));
             mSpriteBatch.End();
         }
 
@@ -169,7 +171,7 @@ namespace Transmission.World
 
         public void LevelWin()
         {
-            throw new NotImplementedException();
+            game.SM().Push(new WonLevelScene());
         }
 
         public void LevelFail()

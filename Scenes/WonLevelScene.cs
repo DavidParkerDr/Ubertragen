@@ -8,14 +8,18 @@ namespace Transmission.Scenes
     {
         IGame game = Transmission.Instance();
         Vector2 wonTextPos;
+        Vector2 clickTextPos;
         string wonText = "You Win!";
+        string clickText = "Click to continue";
 
         private SpriteBatch sb;
         private SpriteFont font;
 
+        float elapsedTime;
+
         public WonLevelScene()
         {
-            font = game.CM().Load<SpriteFont>("Fonts/Eurostile");
+            font = game.CM().Load<SpriteFont>("Fonts/EurostileBold");
             int screenWidth = game.GDM().GraphicsDevice.Viewport.Width;
             int screenHeight = game.GDM().GraphicsDevice.Viewport.Height;
 
@@ -23,9 +27,14 @@ namespace Transmission.Scenes
 
             var mainTextSize = font.MeasureString(wonText);
             wonTextPos = new Vector2(
-                screenWidth - mainTextSize.X / 2,
+                (screenWidth - mainTextSize.X) / 2f,
                 screenHeight * 0.2f
             );
+
+            var clickTextSize = font.MeasureString(clickText);
+            clickTextPos = new Vector2(
+                ((screenWidth - clickTextSize.X) / 2f),
+                (screenHeight * 0.8f));
         }
 
         public void Draw(float pSeconds)
@@ -33,6 +42,13 @@ namespace Transmission.Scenes
             sb.Begin();
 
             sb.DrawString(font, wonText, wonTextPos, Color.White);
+
+
+
+            if ((int)pSeconds % 2 == 0)
+            {
+                sb.DrawString(font, clickText, clickTextPos, Color.White);
+            }
 
             sb.End();
         }
@@ -43,6 +59,7 @@ namespace Transmission.Scenes
 
         public void Update(float pSeconds)
         {
+            elapsedTime += pSeconds;
         }
     }
 }

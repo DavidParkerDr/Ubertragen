@@ -74,7 +74,7 @@ namespace Transmission.Scenes
                 textBgRectangle.Height - 20);
 
             clickTextPos = new Vector2(
-                screenWidth * 0.7f,
+                screenWidth * 0.5f,
                 screenHeight * 0.95f
             );
         }
