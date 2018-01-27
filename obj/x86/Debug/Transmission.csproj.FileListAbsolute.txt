@@ -45,3 +45,4 @@ C:\ggj-2018\bin\Windows\Debug\Content\UI\UI-09.xnb
 C:\ggj-2018\bin\Windows\Debug\Content\absorber.xnb
 C:\ggj-2018\bin\Windows\Debug\Content\unhackable.xnb
 C:\ggj-2018\bin\Windows\Debug\Data\Stages\02.json
+C:\ggj-2018\bin\Windows\Debug\Content\hackable.xnb
