@@ -9,6 +9,8 @@ namespace Transmission.Scenes
     {
         IGame game = Transmission.Instance();
 
+        float mTimeTillActive;
+
         SpriteBatch spriteBatch;
         Texture2D coverTexture;
         Texture2D titleTexture;
@@ -30,6 +32,7 @@ namespace Transmission.Scenes
             this.titleTexture = game.CM().Load<Texture2D>("Title/Title");
             this.coverTexture = game.CM().Load<Texture2D>("Title/Cover");
             this.clickTexture = game.CM().Load<Texture2D>("Title/click");
+            mTimeTillActive = 0.5f;
 
             font = game.CM().Load<SpriteFont>("Fonts/Eurostile");
 
@@ -72,16 +75,22 @@ namespace Transmission.Scenes
         public void Update(float pSeconds)
         {
             elapsedTime += pSeconds;
+            if (mTimeTillActive >= 0)
+            {
+                mTimeTillActive -= pSeconds;
+            }
         }
 
         public void HandleInput(float pSeconds) {
-
-            var mouseState = Mouse.GetState();
-
-            if (mouseState.LeftButton == ButtonState.Pressed)
+            if (mTimeTillActive <= 0)
             {
-                game.SM().Pop();
-                game.SM().Push(new StoryScene("Data/Story/Intro.json"));
+                var mouseState = Mouse.GetState();
+
+                if (mouseState.LeftButton == ButtonState.Pressed)
+                {
+                    game.SM().Pop();
+                    game.SM().Push(new StoryScene("Data/Story/Intro.json"));
+                }
             }
         }
     }
