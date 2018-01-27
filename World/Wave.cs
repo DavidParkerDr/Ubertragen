@@ -26,7 +26,7 @@ namespace Transmission.World
         {
             LifeLeft = DGS.WAVE_LIFETIME;
             Speed = DGS.WAVE_SPEED;
-            mCircle = new Circle(pPosition, 0);
+            mCircle = new Circle(pPosition, DGS.TRANSMITTER_RADIUS);
             mColour = pColour;
         }
 
