@@ -68,14 +68,13 @@ namespace Transmission.Scenes
             }
 
             spriteBatch.End();
-   
         }
 
         public void Update(float pSeconds)
         {
             timeSinceChar += pSeconds;
 
-            if (timeSinceChar > timePerChar) {
+            if (timeSinceChar > timePerChar && visibleText.Length < page.Text.Length) {
                 timeSinceChar = 0;
                 visibleText = page.Text.Substring(0, visibleText.Length + 1);
             }
@@ -84,8 +83,7 @@ namespace Transmission.Scenes
 
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
-                game.SM().Pop();
-                game.SM().Push(new StoryScene("Data/Story/Intro.json"));
+                game.SM().GotoScene(page.Next);
             }
         }
     }

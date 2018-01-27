@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Transmission.Scenes.Story;
 
 namespace Transmission.Scenes
 {
@@ -60,6 +61,25 @@ namespace Transmission.Scenes
             {
                 Top.Draw(pSeconds);
             }
+        }
+
+        public void GotoScene(NextScene nextScene) {
+            var newScene = default(IScene);
+
+            switch (nextScene.Type)
+            {
+                case "game":
+                    newScene = new GameScene(nextScene.File);
+                    break;
+                case "story":
+                    newScene = new StoryScene(nextScene.File);
+                    break;
+                default:
+                    throw new InvalidOperationException("Unknown scene type");
+            }
+
+            this.Pop();
+            this.Push(newScene);
         }
     }
 }
