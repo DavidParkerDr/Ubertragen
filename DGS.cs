@@ -25,7 +25,7 @@ namespace Transmission
         public static Color RED = new Color(250, 50, 60, 255);
         public static Color GOLD = new Color(255, 255, 60, 255);
         public static Color FUCHSIA = new Color(230, 40, 255, 255);
-
+        public const float CYCLE_TIME = 1f;
 
     }
 }

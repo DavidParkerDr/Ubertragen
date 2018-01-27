@@ -85,6 +85,14 @@ namespace Transmission.World
                     case "absorber":
                         nodeManager.AddNode(new Absorber(int.Parse(values[1]), int.Parse(values[2]), values[3].ToColour()));
                         break;
+                    case "cycler":
+                        Color[] colours = new Color[values.Length - 3];
+                        for(int i = 3; i < values.Length; i++)
+                        {
+                            colours[i - 3] = values[i].ToColour();
+                        }
+                        nodeManager.AddNode(new Cycler(int.Parse(values[1]), int.Parse(values[2]), colours));
+                        break;
                     case "mover":
                         break;
                     default:

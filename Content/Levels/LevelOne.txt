@@ -4,8 +4,8 @@ Transmitter, 100, 200, fuchsia
 Transmitter, 100, 300, cyan
 Transmitter, 100, 400, red
 Transmitter, 200, 100, red
-Transmitter, 200, 200, cyan
-Transmitter, 200, 300, cyan
+Cycler, 200, 200, red, gold, fuchsia
+Cycler, 200, 300, cyan, red, gold
 Transmitter, 200, 400, cyan
 Absorber, 300, 100, red
 Unhackable, 300, 200, fuchsia

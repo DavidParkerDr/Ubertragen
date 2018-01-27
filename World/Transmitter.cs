@@ -23,19 +23,6 @@ namespace Transmission.World
             Reset();
         }
 
-        public void HackTransmitter()
-        {
-            State = TransmitterState.HACKED;
-        }
-
-        public void HackTransmitter(Color pColour)
-        {
-            State = TransmitterState.HACKED;
-         /*   mColour.R = (byte)(Math.Min(mColour.R + pColour.R, 255));
-            mColour.G = (byte)(Math.Min(mColour.G + pColour.G, 255));
-            mColour.B = (byte)(Math.Min(mColour.B + pColour.B, 255)); */
-        }
-
         public override void Reset()
         {
             State = TransmitterState.NORMAL;
@@ -48,7 +35,7 @@ namespace Transmission.World
             {
                 if (Circle.Intersects(pPosition))
                 {
-                    HackTransmitter();
+                    State = TransmitterState.HACKED;
                     return true;
                 }
             }
@@ -59,7 +46,7 @@ namespace Transmission.World
         {
             if(Circle.Intersects(pWave.Circle))
             {
-                HackTransmitter(pWave.Colour);
+                State = TransmitterState.HACKED;
             }
         }
 

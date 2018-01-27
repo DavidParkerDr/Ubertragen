@@ -55,6 +55,9 @@
     <Compile Include="Scenes\FlashScreenScene.cs" />
     <Compile Include="Scenes\SceneManager.cs" />
     <Compile Include="World\Absorber.cs" />
+    <Compile Include="World\Cycler.cs" />
+    <Compile Include="World\CyclingUnhackable.cs" />
+    <Compile Include="World\Detonator.cs" />
     <Compile Include="World\INode.cs" />
     <Compile Include="World\Level.cs" />
     <Compile Include="World\Node.cs" />
