@@ -39,7 +39,7 @@ namespace Transmission.World
             for (int i = 0; i < mWaves.Count; i++)
             {
                 mWaves[i].Update(pSeconds);
-                TransmitterManager.Instance().CheckWave(mWaves[i]);
+                NodeManager.Instance().CheckWave(mWaves[i]);
             }
 
             for(int i = mWaves.Count - 1; i >= 0; i--)

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,27 +10,24 @@ using Transmission.Helpers;
 
 namespace Transmission.World
 {
-    public class Transmitter
+    public class Transmitter : Node
     {
         public enum TransmitterState { NORMAL, HACKED }
 
-        private float mTimeToWave;
-
-        private Color mColour;
-
-        public Color Colour { get { return mColour; } }
-
-        public Circle Circle { get; private set; }
         public TransmitterState State { get; private set; }
 
-        public Rectangle Rect {  get { return new Rectangle((int)(Circle.Position.X - Circle.Radius), (int)(Circle.Position.Y - Circle.Radius), (int)Circle.Radius * 2, (int)Circle.Radius * 2); } }
+        private float mTimeToWave;
 
-        public Transmitter(int pX, int pY, Color pColour)
+        public Transmitter(int pX, int pY, Color pColour):base(pColour, new Circle(new Point(pX - DGS.TRANSMITTER_RADIUS / 2, pY - DGS.TRANSMITTER_RADIUS / 2), DGS.TRANSMITTER_RADIUS), Transmission.Instance().CM().Load<Texture2D>("white_disk"))
         {
-            Circle = new Circle(new Point(pX - DGS.TRANSMITTER_RADIUS / 2, pY - DGS.TRANSMITTER_RADIUS / 2), DGS.TRANSMITTER_RADIUS);
             State = TransmitterState.NORMAL;
             mTimeToWave = 0;
             mColour = pColour;
+        }
+
+        public void HackTransmitter()
+        {
+            State = TransmitterState.HACKED;
         }
 
         public void HackTransmitter(Color pColour)
@@ -40,7 +38,23 @@ namespace Transmission.World
             mColour.B = (byte)(Math.Min(mColour.B + pColour.B, 255));
         }
 
-        public void Update(float pSeconds)
+        public override void MouseClick(Point pPosition)
+        {
+            if(Circle.Intersects(pPosition))
+            {
+                HackTransmitter();
+            }
+        }
+
+        public override void IntersectCheck(Wave pWave)
+        {
+            if(Circle.Intersects(pWave.Circle))
+            {
+                HackTransmitter(pWave.Colour);
+            }
+        }
+
+        public override void Update(float pSeconds)
         {
             if(State == TransmitterState.HACKED)
             {

@@ -25,7 +25,7 @@ namespace Transmission.Scenes
 
         public void Draw(float pSeconds)
         {
-            Transmission.Instance().GDM().GraphicsDevice.Clear(Color.CornflowerBlue);
+            Transmission.Instance().GDM().GraphicsDevice.Clear(Color.Black);
 
             mLevel.Draw(pSeconds);
 

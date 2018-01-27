@@ -36,11 +36,11 @@ namespace Transmission.World
             {
                 string line = reader.ReadLine();
                 string[] values = line.Split(',');
-                TransmitterManager transmitterManager = TransmitterManager.Instance();
+                NodeManager transmitterManager = NodeManager.Instance();
                 switch (values[0].ToLower())
                 {
                     case "transmitter":
-                        transmitterManager.AddTransmitter(new Transmitter(int.Parse(values[1]), int.Parse(values[2]), values[3].ToColour()));
+                        transmitterManager.AddNode(new Transmitter(int.Parse(values[1]), int.Parse(values[2]), values[3].ToColour()));
                         break;
                     default:
                         throw new Exception("Unrecognised token " + values[0] + " in " + pFileName);
@@ -58,9 +58,9 @@ namespace Transmission.World
 
             if(Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
-                TransmitterManager.Instance().CheckMouseClick(Mouse.GetState().Position);
+                NodeManager.Instance().CheckMouseClick(Mouse.GetState().Position);
             }
-            TransmitterManager.Instance().Update(pSeconds);
+            NodeManager.Instance().Update(pSeconds);
             WaveManager.Instance().Update(pSeconds);
         }
 
@@ -72,7 +72,7 @@ namespace Transmission.World
 
             WaveManager.Instance().Draw(mSpriteBatch, pSeconds);
 
-            TransmitterManager.Instance().Draw(mSpriteBatch, pSeconds);
+            NodeManager.Instance().Draw(mSpriteBatch, pSeconds);
 
 
             mSpriteBatch.Draw(mCursorTexture, mMouseRectangle, Color.White);
