@@ -132,6 +132,7 @@ namespace Transmission.World
             if (State == LevelState.Propagating &&
                 timeInState > propagatingTime) {
                 this.changeState(LevelState.Lost);
+                Transmission.Instance().SM().Push(new LevelFailScene(this));
             }
 
             if (State == LevelState.Won &&
@@ -174,6 +175,7 @@ namespace Transmission.World
 
         public void Reset()
         {
+            State = LevelState.Playing;
             mHacksRemaining = mStartingNumberOfHacks;
             WaveManager.Instance().Reset();
             NodeManager.Instance().ResetNodes();
