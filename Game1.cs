@@ -88,6 +88,11 @@ namespace Transmission
             mSoundManager.Add("Sounds/boom_2");
             mSoundManager.Add("Sounds/boom_3");
             mSoundManager.Add("Sounds/game over");
+            mSoundManager.Add("Sounds/Keyboard/keyboard_1");
+            mSoundManager.Add("Sounds/Keyboard/keyboard_2");
+            mSoundManager.Add("Sounds/Keyboard/keyboard_3");
+            mSoundManager.Add("Sounds/Keyboard/keyboard_4");
+            mSoundManager.Add("Sounds/Keyboard/keyboard_5");
 
             mSceneManager.Push(new FlashScreenScene());
         }
