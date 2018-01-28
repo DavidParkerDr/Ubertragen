@@ -25,7 +25,7 @@ namespace Transmission.Scenes
         float timeSinceChar = 0f;
 
         int visibleWidth;
-        int lineHeight = 20;
+        int lineHeight = 28;
         Rectangle textRectangle;
         bool mButtonPressed = false;
 

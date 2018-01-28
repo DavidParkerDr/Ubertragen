@@ -10,11 +10,11 @@
     },
     {
       "speaker": "bird",
-      "text": "Your goal here is to hack all corporate compu-nodes in range."
+      "text": "We want you to hack the fuchsia corporate compu-node."
     },
     {
       "speaker": "bird",
-      "text": "You can hack a node by clicking it."
+      "text": "Hack the node by clicking it."
     }
   ]
 }

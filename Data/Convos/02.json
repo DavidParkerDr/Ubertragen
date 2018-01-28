@@ -1,0 +1,16 @@
+﻿{
+  "segments": [
+    {
+      "speaker": "bird",
+      "text": "Well done."
+    },
+    {
+      "speaker": "bird",
+      "text": "When you hack a node, it transmits a signal which can hack other nodes."
+    },
+    {
+      "speaker": "bird",
+      "text": "Hack one of these nodes and watch the signal spread to the other."
+    }
+  ]
+}

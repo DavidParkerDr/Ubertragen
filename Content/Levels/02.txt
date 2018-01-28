@@ -1,0 +1,3 @@
+﻿Hacks:3
+Transmitter, 540, 390, fuchsia
+Transmitter, 700, 330, fuchsia
