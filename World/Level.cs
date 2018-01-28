@@ -29,7 +29,7 @@ namespace Transmission.World
         GameScene scene;
         private Texture2D mCursorTexture;
         private Texture2D mOuterRingTexture;
-        private Rectangle mMouseRectangle;
+        private Rectangle mVerticalMouseRectangle, mHorizontalMouseRectangle;
         private Texture2D mWhiteCircle;
         private Texture2D mWhiteDisk;
         private Texture2D mHacksUIBackground;
@@ -54,7 +54,8 @@ namespace Transmission.World
             mOuterRingTexture = game.CM().Load<Texture2D>("white_disk");
             mHacksUIBackground = game.CM().Load<Texture2D>("UI/UI-09");
             mHacksUIRect = new Rectangle(0, 0, mHacksUIBackground.Width / 15, mHacksUIBackground.Height / 15);
-            mMouseRectangle = new Rectangle(0, 0, DGS.MOUSE_WIDTH, DGS.MOUSE_HEIGHT);
+            mVerticalMouseRectangle = new Rectangle(0, 0, 2, game.GDM().GraphicsDevice.Viewport.Height);
+            mHorizontalMouseRectangle = new Rectangle(0, 0, game.GDM().GraphicsDevice.Viewport.Width, 2);
             mSpriteBatch = new SpriteBatch(game.GDM().GraphicsDevice);
             mFont = game.CM().Load<SpriteFont>("Fonts/EurostileBold");
             StreamReader reader = new StreamReader(pFileName);
@@ -111,8 +112,8 @@ namespace Transmission.World
 
             if (State == LevelState.Playing && HasFocus)
             {
-                mMouseRectangle.X = Mouse.GetState().Position.X - DGS.MOUSE_WIDTH / 2;
-                mMouseRectangle.Y = Mouse.GetState().Position.Y - DGS.MOUSE_HEIGHT / 2;
+                mVerticalMouseRectangle.X = Mouse.GetState().Position.X - 1;
+                mHorizontalMouseRectangle.Y = Mouse.GetState().Position.Y - 1;
 
                 if (Mouse.GetState().LeftButton == ButtonState.Pressed)
                 {
@@ -169,7 +170,8 @@ namespace Transmission.World
 
             if (HasFocus)
             {
-                mSpriteBatch.Draw(mCursorTexture, mMouseRectangle, Color.White);
+                mSpriteBatch.Draw(mCursorTexture, mVerticalMouseRectangle, Color.SlateGray);
+                mSpriteBatch.Draw(mCursorTexture, mHorizontalMouseRectangle, Color.SlateGray);
             }
 
             mSpriteBatch.DrawString(mFont, 
