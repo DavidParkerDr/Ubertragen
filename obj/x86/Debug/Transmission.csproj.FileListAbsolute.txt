@@ -101,18 +101,8 @@ C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Fonts\8BitLimi
 C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Fonts\Eurostile.xnb
 C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Fonts\EurostileBold.xnb
 C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Fonts\PressStart2P.xnb
-C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\boom_1.xnb
-C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\boom_2.xnb
-C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\boom_3.xnb
-C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\game over.xnb
 C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\IntroText.xnb
 C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\IntroText2.xnb
-C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\music_loop.xnb
-C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\Keyboard\keyboard_1.xnb
-C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\Keyboard\keyboard_2.xnb
-C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\Keyboard\keyboard_3.xnb
-C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\Keyboard\keyboard_4.xnb
-C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\Keyboard\keyboard_5.xnb
 C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Title\click.xnb
 C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Title\Cover.xnb
 C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Title\Title.xnb
@@ -150,6 +140,17 @@ C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\SharpDX.Direct3D11.xml
 C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\SharpDX.Direct2D1.xml
 C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\SharpDX.XInput.xml
 C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\SharpDX.Direct3D9.xml
-C:\Users\daviu\Downloads\ggj18\ggj-2018\obj\x86\Debug\Transmission.csprojResolveAssemblyReference.cache
 C:\Users\daviu\Downloads\ggj18\ggj-2018\obj\x86\Debug\Transmission.exe
 C:\Users\daviu\Downloads\ggj18\ggj-2018\obj\x86\Debug\Transmission.pdb
+C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\finaleText.xnb
+C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Data\Story\finale.json
+C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\boom_1.xnb
+C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\boom_2.xnb
+C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\boom_3.xnb
+C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\game over.xnb
+C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\music_loop.xnb
+C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\Keyboard\keyboard_1.xnb
+C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\Keyboard\keyboard_2.xnb
+C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\Keyboard\keyboard_3.xnb
+C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\Keyboard\keyboard_4.xnb
+C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Sounds\Keyboard\keyboard_5.xnb

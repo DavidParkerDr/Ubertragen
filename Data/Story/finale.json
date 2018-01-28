@@ -1,0 +1,10 @@
+﻿
+{
+  "image": "",
+  "text": "Transmitting in the all clear. We've done it! TragenCorp's network has been fully compromised and their nefarious programme has been terminated. Now is the time to disconnect, come out of the shadows, and try and rebuild. See you all in the real. [transmission end]",
+  "voiceover":  "Sounds/finaleText",
+  "next": {
+    "type": "title",
+    "file": ""
+  }
+}

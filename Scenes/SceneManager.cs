@@ -84,6 +84,9 @@ namespace Transmission.Scenes
                 case "stage":
                     this.GotoStage(nextScene.File);
                     break;
+                case "title":
+                    this.Push(new TitleScene());
+                    break;
                 default:
                     throw new InvalidOperationException("Unknown scene type");
             }

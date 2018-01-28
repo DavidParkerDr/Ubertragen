@@ -28,6 +28,7 @@ namespace Transmission.Scenes
         int lineHeight = 28;
         Rectangle textRectangle;
         bool mButtonPressed = false;
+        bool mButtonReleased = false;
 
         SoundEffectInstance mVoiceover;
 
@@ -51,7 +52,15 @@ namespace Transmission.Scenes
             page = JsonConvert.DeserializeObject<StoryPage>(File.ReadAllText(filename));
             mVoiceover = game.GetSoundManager().GetSoundEffectInstance(page.Voiceover);
             mVoiceover.Play();
-            
+            var mouseState = Mouse.GetState();
+            if (mouseState.LeftButton == ButtonState.Pressed)
+            {
+                mButtonReleased = false;
+            }
+            else
+            {
+                mButtonReleased = true;
+            }
         }
 
         public void Draw(float pSeconds)
@@ -83,7 +92,7 @@ namespace Transmission.Scenes
         public void HandleInput(float pSeconds)
         {
             var mouseState = Mouse.GetState();
-            if(mouseState.LeftButton == ButtonState.Pressed)
+            if(mButtonReleased && mouseState.LeftButton == ButtonState.Pressed)
             {
                 mButtonPressed = true;
             }
@@ -91,6 +100,10 @@ namespace Transmission.Scenes
             {
                 mVoiceover.Stop();
                 game.SM().GotoScene(page.Next);
+            }
+            else if(!mButtonPressed && mouseState.LeftButton == ButtonState.Released)
+            {
+                mButtonReleased = true;
             }
         }
 

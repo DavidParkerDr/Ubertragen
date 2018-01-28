@@ -84,6 +84,7 @@ namespace Transmission
             mSoundManager.Add("Sounds/music_loop");
             mSoundManager.Add("Sounds/introText");
             mSoundManager.Add("Sounds/introText2");
+            mSoundManager.Add("Sounds/finaleText");
             mSoundManager.Add("Sounds/boom_1");
             mSoundManager.Add("Sounds/boom_2");
             mSoundManager.Add("Sounds/boom_3");
