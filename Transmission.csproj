@@ -72,7 +72,6 @@
     <Compile Include="Scenes\ConvoScene.cs" />
     <Compile Include="Scenes\Story\Convo.cs" />
     <Compile Include="Helpers\SpriteFontHelpers.cs" />
-    <Compile Include="Scenes\StageScene.cs" />
     <Compile Include="Scenes\Story\Stage.cs" />
     <Compile Include="Scenes\WonLevelScene.cs" />
   </ItemGroup>

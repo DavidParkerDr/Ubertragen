@@ -73,31 +73,28 @@ namespace Transmission.Scenes
         }
 
         public void GotoScene(NextScene nextScene) {
-            var newScene = default(IScene);
-
             this.Pop();
 
             switch (nextScene.Type)
             {
                 case "story":
-                    newScene = new StoryScene(nextScene.File);
+                    this.Push(new StoryScene(nextScene.File));
                     break;
                 case "stage":
-                    newScene = new StageScene(nextScene.File);
+                    this.GotoStage(nextScene.File);
                     break;
                 default:
                     throw new InvalidOperationException("Unknown scene type");
             }
-
-            this.Push(newScene);
         }
-        /*
-        public void GotoStage(string stageFile) {
-            var stage = JsonConvert.DeserializeObject<Stage>(File.ReadAllText(stageFile));
+
+        public void GotoStage(string filename)
+        {
+            var stage = JsonConvert.DeserializeObject<Stage>(File.ReadAllText(filename));
 
             if (stage.Level != null)
             {
-                var gameScene = new GameScene(stage.Level);
+                var gameScene = new GameScene(stage);
                 this.Push(gameScene);
             }
 
@@ -106,6 +103,6 @@ namespace Transmission.Scenes
                 var convoScene = new ConvoScene(stage.Convo);
                 this.Push(convoScene);
             }
-        }*/
+        }
     }
 }
