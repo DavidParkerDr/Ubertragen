@@ -28,6 +28,7 @@ namespace Transmission.World
         IGame game;
         GameScene scene;
         private Texture2D mCursorTexture;
+        private Texture2D mOuterRingTexture;
         private Rectangle mMouseRectangle;
         private Texture2D mWhiteCircle;
         private Texture2D mWhiteDisk;
@@ -50,7 +51,7 @@ namespace Transmission.World
 
             mCursorTexture = game.CM().Load<Texture2D>("pixel");
             mWhiteCircle = game.CM().Load<Texture2D>("white_circle");
-            mWhiteDisk = game.CM().Load<Texture2D>("white_disk");
+            mOuterRingTexture = game.CM().Load<Texture2D>("white_disk");
             mHacksUIBackground = game.CM().Load<Texture2D>("UI/UI-09");
             mHacksUIRect = new Rectangle(0, 0, mHacksUIBackground.Width / 15, mHacksUIBackground.Height / 15);
             mMouseRectangle = new Rectangle(0, 0, DGS.MOUSE_WIDTH, DGS.MOUSE_HEIGHT);

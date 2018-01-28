@@ -46,3 +46,5 @@ C:\ggj-2018\bin\Windows\Debug\Content\absorber.xnb
 C:\ggj-2018\bin\Windows\Debug\Content\unhackable.xnb
 C:\ggj-2018\bin\Windows\Debug\Data\Stages\02.json
 C:\ggj-2018\bin\Windows\Debug\Content\hackable.xnb
+C:\ggj-2018\bin\Windows\Debug\Data\Convos\01.json
+C:\ggj-2018\bin\Windows\Debug\Content\Levels\01.txt
