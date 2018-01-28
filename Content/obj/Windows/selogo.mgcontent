@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/ggj-2018/Content/selogo.png</SourceFile>
-  <SourceTime>2016-11-04T18:16:30.479485+00:00</SourceTime>
-  <DestFile>C:/ggj-2018/Content/bin/Windows/selogo.xnb</DestFile>
-  <DestTime>2018-01-28T13:20:07.4817298+00:00</DestTime>
+  <SourceFile>C:/Users/daviu/Downloads/ggj18/ggj-2018/Content/selogo.png</SourceFile>
+  <SourceTime>2018-01-28T10:40:52.0781495+00:00</SourceTime>
+  <DestFile>C:/Users/daviu/Downloads/ggj18/ggj-2018/Content/bin/Windows/selogo.xnb</DestFile>
+  <DestTime>2018-01-28T14:45:35.6036645+00:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T15:05:36+00:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

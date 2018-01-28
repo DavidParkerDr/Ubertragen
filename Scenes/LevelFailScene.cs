@@ -34,13 +34,14 @@ namespace Transmission.Scenes
         {
             mFailedLevel = pLevel;
             IGame game = Transmission.Instance();
-            mGUIBackgroundTexture = game.CM().Load<Texture2D>("pixel");
-            mRetryButtonTexture = game.CM().Load<Texture2D>("pixel");
-            mQuitButtonTexture = game.CM().Load<Texture2D>("pixel");
-
-            mGUIBackgroundRect = new Rectangle(0, 0, 800, 400);
-            mRetryButtonRect = new Rectangle(200, 100, 200, 100);
-            mQuitButtonRect = new Rectangle(400, 100, 200, 100);
+            mGUIBackgroundTexture = game.CM().Load<Texture2D>("disconnected");
+            mRetryButtonTexture = game.CM().Load<Texture2D>("replay");
+            mQuitButtonTexture = game.CM().Load<Texture2D>("end");
+            int screenWidth = game.GDM().GraphicsDevice.Viewport.Width;
+            int screenHeight = game.GDM().GraphicsDevice.Viewport.Height;
+            mGUIBackgroundRect = new Rectangle(0, 0, screenWidth, screenHeight);
+            mRetryButtonRect = new Rectangle(200, screenHeight - 100 - 200, 200, 100);
+            mQuitButtonRect = new Rectangle(screenWidth-200-200, screenHeight - 100 - 200, 200, 100);
 
             mCursorTexture = game.CM().Load<Texture2D>("pixel");
             mMouseRectangle = new Rectangle(0, 0, DGS.MOUSE_WIDTH, DGS.MOUSE_HEIGHT);
@@ -55,8 +56,8 @@ namespace Transmission.Scenes
 
             mSpriteBatch.Begin();
             mSpriteBatch.Draw(mGUIBackgroundTexture, mGUIBackgroundRect, Color.White);
-            mSpriteBatch.Draw(mQuitButtonTexture, mQuitButtonRect, Color.Red);
-            mSpriteBatch.Draw(mRetryButtonTexture, mRetryButtonRect, Color.Green);
+            mSpriteBatch.Draw(mQuitButtonTexture, mQuitButtonRect, Color.Black);
+            mSpriteBatch.Draw(mRetryButtonTexture, mRetryButtonRect, Color.Black);
             mSpriteBatch.Draw(mCursorTexture, mMouseRectangle, Color.White);
             mSpriteBatch.End();
         }

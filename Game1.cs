@@ -96,6 +96,7 @@ namespace Transmission
             mSoundManager.Add("Sounds/Keyboard/keyboard_5");
 
             mSceneManager.Push(new FlashScreenScene());
+
         }
 
         /// <summary>
