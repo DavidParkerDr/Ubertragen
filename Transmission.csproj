@@ -105,6 +105,12 @@
     <None Include="Content\Levels\sjg02.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Content\Levels\sjg03.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Levels\sjg04.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="Content\pixel.png" />
     <Content Include="Content\selogo.png" />
     <Content Include="Content\Title\click.png" />
