@@ -1,4 +1,4 @@
-﻿Hacks:3
+﻿Hacks:1
 Transmitter, 690, 342, red
 Unhackable, 550, 400, red
 Transmitter, 440, 500, red

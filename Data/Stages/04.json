@@ -2,7 +2,7 @@
   "level": "Content/Levels/04.txt",
   "convo": "Data/Convos/04.json",
   "next": {
-    "type": "story",
-    "file": "Data/Story/finale.json"
+    "type": "stage",
+    "file": "Data/Stages/05.json"
   }
 }
