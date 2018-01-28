@@ -179,3 +179,5 @@ C:\ggj-2018\bin\Windows\Debug\Data\Convos\03.json
 C:\ggj-2018\bin\Windows\Debug\Data\Stages\04.json
 C:\ggj-2018\bin\Windows\Debug\Content\Levels\04.txt
 C:\ggj-2018\bin\Windows\Debug\Data\Convos\04.json
+C:\ggj-2018\bin\Windows\Debug\Content\Levels\sjg03.txt
+C:\ggj-2018\bin\Windows\Debug\Content\Levels\sjg04.txt

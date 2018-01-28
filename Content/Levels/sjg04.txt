@@ -1,0 +1,10 @@
+﻿Hacks:1
+Cycler, 300, 300,  gold, fuchsia, cyan, red
+Unhackable, 300, 400, gold
+Cycler, 300, 500, fuchsia, gold, red, cyan
+Unhackable, 400, 300, fuchsia
+Cycler, 400, 400, red, cyan, gold, fuchsia
+Unhackable, 400, 500, cyan
+Cycler, 500, 300,  red, gold, fuchsia, cyan
+Unhackable, 500, 400, red
+Cycler, 500, 500, cyan, red, gold, fuchsia
