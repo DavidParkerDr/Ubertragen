@@ -1,0 +1,16 @@
+﻿{
+  "segments": [
+    {
+      "speaker": "bird",
+      "text": "You're beginning to get it."
+    },
+    {
+      "speaker": "bird",
+      "text": "Your scanner only has the energy to make a limited number of hacks before TragenCorp get wind of you."
+    },
+    {
+      "speaker": "bird",
+      "text": "Hack these compu-nodes, and make sure that you cover all the servers."
+    }
+  ]
+}

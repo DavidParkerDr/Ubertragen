@@ -12,14 +12,21 @@ namespace Transmission.Scenes
 {
     public class StoryScene : IScene
     {
+        enum StorySceneState
+        {
+            Animating,
+            Static
+        };
+
         IGame game = Transmission.Instance();
-        float timePerChar = 0.08f;
+        float timePerChar = 0.06f;
 
         SpriteBatch spriteBatch;
         SpriteFont titleFont;
         SpriteFont bodyFont;
 
         StoryPage page;
+        StorySceneState state = StorySceneState.Animating;
 
         string visibleText = "";
         float timeSinceChar = 0f;
@@ -27,10 +34,13 @@ namespace Transmission.Scenes
         int visibleWidth;
         int lineHeight = 28;
         Rectangle textRectangle;
+        bool mouseDown = false;
         bool mButtonPressed = false;
         bool mButtonReleased = false;
 
         SoundEffectInstance mVoiceover;
+
+        float timeInState = 0f;
 
         public StoryScene(string filename)
         {
@@ -81,31 +91,63 @@ namespace Transmission.Scenes
 
         public void Update(float pSeconds)
         {
+            timeInState += pSeconds;
+
             timeSinceChar += pSeconds;
 
-            if (timeSinceChar > timePerChar && visibleText.Length < page.Text.Length) {
-                timeSinceChar = 0;
-                visibleText = page.Text.Substring(0, visibleText.Length + 1);
+            var tpc = mouseDown ? timePerChar / 2 : timePerChar;
+
+            if (state == StorySceneState.Animating)
+            {
+                if (timeSinceChar > tpc)
+                {
+                    if (visibleText.Length < page.Text.Length)
+                    {
+                        timeSinceChar = 0;
+                        visibleText = page.Text.Substring(0, visibleText.Length + 1);
+                    }
+                    else
+                    {
+                        this.changeState(StorySceneState.Static);
+                    }
+                }
             }
         }
 
         public void HandleInput(float pSeconds)
         {
             var mouseState = Mouse.GetState();
-            if(mButtonReleased && mouseState.LeftButton == ButtonState.Pressed)
-            {
-                mButtonPressed = true;
-            }
-            if (mButtonPressed && mouseState.LeftButton == ButtonState.Released)
+
+
+
+            if (mouseDown && 
+                mouseState.LeftButton == ButtonState.Released &&
+                state == StorySceneState.Static &&
+                timeInState > 0.5f)
             {
                 mVoiceover.Stop();
                 game.SM().GotoScene(page.Next);
             }
-            else if(!mButtonPressed && mouseState.LeftButton == ButtonState.Released)
+
+            if (mButtonReleased && mouseState.LeftButton == ButtonState.Pressed)
+            {
+                mButtonPressed = true;
+            }
+
+            if(!mButtonPressed && mouseState.LeftButton == ButtonState.Released)
             {
                 mButtonReleased = true;
             }
+
+            mouseDown = mouseState.LeftButton == ButtonState.Pressed;
         }
+
+        private void changeState(StorySceneState state)
+        {
+            this.state = state;
+            this.timeInState = 0f;
+        }
+
 
         public void OnPop()
         {

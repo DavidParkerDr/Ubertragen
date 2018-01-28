@@ -164,6 +164,18 @@
     <None Include="Content\Sounds\IntroText.wav" />
     <None Include="Content\Sounds\IntroText2.wav" />
     <None Include="Content\Sounds\music_loop.wav" />
+    <None Include="Data\Convos\03.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\Stages\04.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\Levels\04.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\Convos\04.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Music\" />

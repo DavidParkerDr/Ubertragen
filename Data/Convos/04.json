@@ -1,0 +1,20 @@
+﻿{
+  "segments": [
+    {
+      "speaker": "bird",
+      "text": "It looks like TargenCorp are beginning to learn."
+    },
+    {
+      "speaker": "bird",
+      "text": "They've managed to make some compu-nodes that your scanner isn't able to access."
+    },
+    {
+      "speaker": "bird",
+      "text": "Fortunately, an ether transmission from another hacked node should do the job."
+    },
+    {
+      "speaker": "bird",
+      "text": "Use one of the hackable compu-nodes to hit the unhackable node."
+    }
+  ]
+}
