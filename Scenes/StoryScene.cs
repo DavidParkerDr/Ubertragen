@@ -32,7 +32,7 @@ namespace Transmission.Scenes
         float timeSinceChar = 0f;
 
         int visibleWidth;
-        int lineHeight = 28;
+        int lineHeight = 30;
         Rectangle textRectangle;
         bool mouseDown = false;
         bool mButtonPressed = false;
@@ -55,7 +55,7 @@ namespace Transmission.Scenes
 
             textRectangle = new Rectangle(
                 40,
-                (int)(screenHeight * 0.6f),
+                (int)(screenHeight * 0.4f),
                 screenWidth - 80,
                 (int)(screenHeight * 0.4f));
 

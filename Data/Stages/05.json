@@ -1,0 +1,8 @@
+﻿{
+  "level": "Content/Levels/05.txt",
+  "convo": "Data/Convos/05.json",
+  "next": {
+    "type": "stage",
+    "file": "Data/Stages/21.json"
+  }
+}
