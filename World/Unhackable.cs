@@ -70,7 +70,7 @@ namespace Transmission.World
 
         public override bool IsWon()
         {
-            return true;
+            return State == TransmitterState.HACKED;
         }
     }
 }

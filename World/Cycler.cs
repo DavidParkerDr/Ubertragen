@@ -85,6 +85,8 @@ namespace Transmission.World
             mColour = mColours[0];
             mColourIndex = 0;
             mTimeTillNextColour = DGS.CYCLE_TIME;
+            State = TransmitterState.NORMAL;
+            mTimeToWave = 0;
         }
     }
 }
