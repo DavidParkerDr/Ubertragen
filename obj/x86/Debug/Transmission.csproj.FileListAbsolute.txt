@@ -173,3 +173,9 @@ C:\ggj-2018\obj\x86\Debug\Transmission.exe
 C:\ggj-2018\obj\x86\Debug\Transmission.pdb
 C:\ggj-2018\bin\Windows\Debug\Content\Levels\sjg01.txt
 C:\ggj-2018\bin\Windows\Debug\Content\Levels\sjg02.txt
+C:\ggj-2018\bin\Windows\Debug\Content\Sounds\finaleText.xnb
+C:\ggj-2018\bin\Windows\Debug\Data\Story\finale.json
+C:\ggj-2018\bin\Windows\Debug\Data\Convos\03.json
+C:\ggj-2018\bin\Windows\Debug\Data\Stages\04.json
+C:\ggj-2018\bin\Windows\Debug\Content\Levels\04.txt
+C:\ggj-2018\bin\Windows\Debug\Data\Convos\04.json

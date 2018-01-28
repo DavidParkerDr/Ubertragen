@@ -1,0 +1,7 @@
+﻿Hacks:1
+Transmitter, 200, 400, fuchsia
+Cycler, 275, 400, gold, fuchsia
+Unhackable, 350, 400, gold
+Cycler, 425, 400, gold, fuchsia
+Absorber, 500, 400, gold 
+Transmitter, 575, 400, gold
