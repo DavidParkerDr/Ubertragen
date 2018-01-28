@@ -173,3 +173,15 @@
 /processorParam:TextureFormat=Color
 /build:hackable.png
 
+#begin Sounds/IntroText.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/IntroText.wav
+
+#begin Sounds/IntroText2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/IntroText2.wav
+

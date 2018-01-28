@@ -1,0 +1,10 @@
+﻿
+{
+  "image": "",
+  "text": "...secure channel confirmed... it's a relief to hear your voice Bird - the surveillance chatter is going nuts over at TragenCorp. Something is coming, I am certain of it, and we are not going to like it.",
+  "voiceover":  "Sounds/introText2",
+  "next": {
+    "type": "stage",
+    "file": "Data/Stages/01.json"
+  }
+}

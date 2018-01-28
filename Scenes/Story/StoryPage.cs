@@ -18,6 +18,8 @@ namespace Transmission.Scenes.Story
 
         public string Text { get; set; }
 
+        public string Voiceover { get; set; }
+
         public NextScene Next { get; set; }
     }
 }

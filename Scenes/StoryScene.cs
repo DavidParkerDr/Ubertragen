@@ -6,13 +6,14 @@ using Microsoft.Xna.Framework.Input;
 using Newtonsoft.Json;
 using Transmission.Helpers;
 using Transmission.Scenes.Story;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Transmission.Scenes
 {
     public class StoryScene : IScene
     {
         IGame game = Transmission.Instance();
-        float timePerChar = 0.1f;
+        float timePerChar = 0.08f;
 
         SpriteBatch spriteBatch;
         SpriteFont titleFont;
@@ -26,6 +27,9 @@ namespace Transmission.Scenes
         int visibleWidth;
         int lineHeight = 20;
         Rectangle textRectangle;
+        bool mButtonPressed = false;
+
+        SoundEffectInstance mVoiceover;
 
         public StoryScene(string filename)
         {
@@ -45,6 +49,9 @@ namespace Transmission.Scenes
                 (int)(screenHeight * 0.4f));
 
             page = JsonConvert.DeserializeObject<StoryPage>(File.ReadAllText(filename));
+            mVoiceover = game.GetSoundManager().GetSoundEffectInstance(page.Voiceover);
+            mVoiceover.Play();
+            
         }
 
         public void Draw(float pSeconds)
@@ -76,9 +83,13 @@ namespace Transmission.Scenes
         public void HandleInput(float pSeconds)
         {
             var mouseState = Mouse.GetState();
-
-            if (mouseState.LeftButton == ButtonState.Pressed)
+            if(mouseState.LeftButton == ButtonState.Pressed)
             {
+                mButtonPressed = true;
+            }
+            if (mButtonPressed && mouseState.LeftButton == ButtonState.Released)
+            {
+                mVoiceover.Stop();
                 game.SM().GotoScene(page.Next);
             }
         }

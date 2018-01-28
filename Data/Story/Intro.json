@@ -1,9 +1,10 @@
 ﻿
 {
   "image": "",
-  "text": "soul-delay table realism decay bridge corporation pistol narrative paranoid woman. engine corporation convenience store digital shanty town decay car concrete wristwatch film. rebar into tanto sentient free-market artisanal systema corrupted knife paranoid. ",
+  "text": "[bzzzzt...crackle..gghsszzzt...] forest, over... I repeat, search request transmitted in the clear, ornithologist seeking rare avian in the forest, over...",
+  "voiceover":  "Sounds/introText",
   "next": {
-    "type": "stage",
-    "file": "Data/Stages/01.json"
+    "type": "story",
+    "file": "Data/Story/Intro2.json"
   }
 }
