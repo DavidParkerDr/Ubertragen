@@ -93,5 +93,10 @@ namespace Transmission.Scenes
                 }
             }
         }
+
+        public void OnPop()
+        {
+            
+        }
     }
 }

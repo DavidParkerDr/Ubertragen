@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -25,6 +26,9 @@ namespace Transmission.Scenes
 
         private Level mFailedLevel;
         private SpriteBatch mSpriteBatch;
+        private SoundEffectInstance levelFailSound;
+
+        private float elapsedTime = 0f;
 
         public LevelFailScene(Level pLevel)
         {
@@ -40,6 +44,7 @@ namespace Transmission.Scenes
 
             mCursorTexture = game.CM().Load<Texture2D>("pixel");
             mMouseRectangle = new Rectangle(0, 0, DGS.MOUSE_WIDTH, DGS.MOUSE_HEIGHT);
+            levelFailSound = game.GetSoundManager().GetSoundEffectInstance("Sounds/game over");
 
             mSpriteBatch = new SpriteBatch(Transmission.Instance().GDM().GraphicsDevice);
         }
@@ -58,6 +63,12 @@ namespace Transmission.Scenes
 
         public void Update(float pSeconds)
         {
+            if (elapsedTime == 0) {
+                this.levelFailSound.Play();
+            }
+
+            elapsedTime += pSeconds;
+
             mFailedLevel.Update(pSeconds);
 
             mMouseRectangle.X = Mouse.GetState().Position.X - DGS.MOUSE_WIDTH / 2;
@@ -91,6 +102,11 @@ namespace Transmission.Scenes
         {
             mFailedLevel.Reset();
             Transmission.Instance().SM().Pop();
+        }
+
+        public void OnPop()
+        {
+            this.levelFailSound.Stop();
         }
     }
 }

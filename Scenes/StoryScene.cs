@@ -93,5 +93,10 @@ namespace Transmission.Scenes
                 game.SM().GotoScene(page.Next);
             }
         }
+
+        public void OnPop()
+        {
+            
+        }
     }
 }

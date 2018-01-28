@@ -12,5 +12,7 @@ namespace Transmission.Scenes
         void Update(float pSeconds);
 
         void HandleInput(float pSeconds);
+
+        void OnPop();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -43,6 +44,9 @@ namespace Transmission.World
         private float timeInState;
         public bool HasFocus { get; set; }
 
+        private SoundEffectInstance bgmLoop;
+        private List<SoundEffectInstance> booms;
+
         public Level(GameScene scene, string pFileName)
         {
             this.scene = scene;
@@ -50,6 +54,14 @@ namespace Transmission.World
             game = Transmission.Instance();
 
             mCursorTexture = game.CM().Load<Texture2D>("pixel");
+            bgmLoop = game.GetSoundManager().GetSoundEffectInstance("Sounds/music_loop");
+            booms = new List<SoundEffectInstance>()
+            {
+                game.GetSoundManager().GetSoundEffectInstance("Sounds/boom_1"),
+                game.GetSoundManager().GetSoundEffectInstance("Sounds/boom_2"),
+                game.GetSoundManager().GetSoundEffectInstance("Sounds/boom_3")
+            };
+
             mWhiteCircle = game.CM().Load<Texture2D>("white_circle");
             mOuterRingTexture = game.CM().Load<Texture2D>("white_disk");
             mHacksUIBackground = game.CM().Load<Texture2D>("UI/UI-09");
@@ -69,6 +81,8 @@ namespace Transmission.World
             NodeManager nodeManager = NodeManager.Instance();
             nodeManager.ResetManager();
             WaveManager.Instance().Reset();
+            bgmLoop.IsLooped = true;
+            bgmLoop.Play();
 
 
             while(!reader.EndOfStream)
@@ -123,6 +137,8 @@ namespace Transmission.World
                     {
                         if (NodeManager.Instance().CheckMouseClick(Mouse.GetState().Position))
                         {
+                            booms[(int)timeInState % 3].Play();
+
                             mHacksRemaining--;
 
                             if (mHacksRemaining == 0) {
@@ -208,6 +224,10 @@ namespace Transmission.World
         private void changeState(LevelState ls) {
             this.State = ls;
             this.timeInState = 0f;
+        }
+
+        public void OnPop() {
+            this.bgmLoop.Stop();
         }
     }
 }

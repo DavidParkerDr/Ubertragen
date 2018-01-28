@@ -76,5 +76,10 @@ namespace Transmission.Scenes
         {
             elapsedTime += pSeconds;
         }
+
+        public void OnPop()
+        {
+            
+        }
     }
 }

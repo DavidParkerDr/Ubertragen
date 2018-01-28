@@ -53,5 +53,10 @@ namespace Transmission.Scenes
 
             mSpriteBatch.End();
         }
+
+        public void OnPop()
+        {
+            
+        }
     }
 }

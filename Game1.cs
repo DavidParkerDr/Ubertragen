@@ -81,8 +81,13 @@ namespace Transmission
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             mBatch = new SpriteBatch(GraphicsDevice);
+            mSoundManager.Add("Sounds/music_loop");
             mSoundManager.Add("Sounds/introText");
             mSoundManager.Add("Sounds/introText2");
+            mSoundManager.Add("Sounds/boom_1");
+            mSoundManager.Add("Sounds/boom_2");
+            mSoundManager.Add("Sounds/boom_3");
+            mSoundManager.Add("Sounds/game over");
 
             mSceneManager.Push(new FlashScreenScene());
         }

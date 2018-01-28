@@ -28,6 +28,7 @@ namespace Transmission.Scenes
         {
             if (Count > 0)
             {
+                mScenes[mScenes.Count - 1].OnPop();
                 mScenes.RemoveAt(mScenes.Count - 1);
             }
         }

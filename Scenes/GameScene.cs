@@ -53,6 +53,10 @@ namespace Transmission.Scenes
                 Transmission.Instance().Exit();
             }
         }
+
+        public void OnPop() {
+            this.mLevel.OnPop();
+        }
     }
 }
 

@@ -154,6 +154,13 @@
     <None Include="Data\Story\Intro2.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Content\Sounds\boom_1.wav" />
+    <None Include="Content\Sounds\boom_2.wav" />
+    <None Include="Content\Sounds\boom_3.wav" />
+    <None Include="Content\Sounds\game over.wav" />
+    <None Include="Content\Sounds\IntroText.wav" />
+    <None Include="Content\Sounds\IntroText2.wav" />
+    <None Include="Content\Sounds\music_loop.wav" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Music\" />

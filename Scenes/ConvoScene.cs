@@ -172,5 +172,10 @@ namespace Transmission.Scenes
             this.state = state;
             this.timeInState = 0f;
         }
+
+        public void OnPop()
+        {
+            
+        }
     }
 }
