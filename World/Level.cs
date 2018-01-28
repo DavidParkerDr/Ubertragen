@@ -23,12 +23,13 @@ namespace Transmission.World
             Propagating
         };
 
-        private float propagatingTime = 5f;
+        private float propagatingTime = 3f;
 
         IGame game;
         GameScene scene;
         private Texture2D mCursorTexture;
-        private Rectangle mMouseRectangle;
+        private Texture2D mOuterRingTexture;
+        private Rectangle mVerticalMouseRectangle, mHorizontalMouseRectangle;
         private Texture2D mWhiteCircle;
         private Texture2D mWhiteDisk;
         private Texture2D mHacksUIBackground;
@@ -50,10 +51,11 @@ namespace Transmission.World
 
             mCursorTexture = game.CM().Load<Texture2D>("pixel");
             mWhiteCircle = game.CM().Load<Texture2D>("white_circle");
-            mWhiteDisk = game.CM().Load<Texture2D>("white_disk");
+            mOuterRingTexture = game.CM().Load<Texture2D>("white_disk");
             mHacksUIBackground = game.CM().Load<Texture2D>("UI/UI-09");
             mHacksUIRect = new Rectangle(0, 0, mHacksUIBackground.Width / 15, mHacksUIBackground.Height / 15);
-            mMouseRectangle = new Rectangle(0, 0, DGS.MOUSE_WIDTH, DGS.MOUSE_HEIGHT);
+            mVerticalMouseRectangle = new Rectangle(0, 0, 2, game.GDM().GraphicsDevice.Viewport.Height);
+            mHorizontalMouseRectangle = new Rectangle(0, 0, game.GDM().GraphicsDevice.Viewport.Width, 2);
             mSpriteBatch = new SpriteBatch(game.GDM().GraphicsDevice);
             mFont = game.CM().Load<SpriteFont>("Fonts/EurostileBold");
             StreamReader reader = new StreamReader(pFileName);
@@ -108,11 +110,13 @@ namespace Transmission.World
         {
             timeInState += pSeconds;
 
+            if (HasFocus) {
+                mVerticalMouseRectangle.X = Mouse.GetState().Position.X - 1;
+                mHorizontalMouseRectangle.Y = Mouse.GetState().Position.Y - 1;
+            }
+
             if (State == LevelState.Playing && HasFocus)
             {
-                mMouseRectangle.X = Mouse.GetState().Position.X - DGS.MOUSE_WIDTH / 2;
-                mMouseRectangle.Y = Mouse.GetState().Position.Y - DGS.MOUSE_HEIGHT / 2;
-
                 if (Mouse.GetState().LeftButton == ButtonState.Pressed)
                 {
                     if (mHacksRemaining > 0)
@@ -168,7 +172,8 @@ namespace Transmission.World
 
             if (HasFocus)
             {
-                mSpriteBatch.Draw(mCursorTexture, mMouseRectangle, Color.White);
+                mSpriteBatch.Draw(mCursorTexture, mVerticalMouseRectangle, Color.SlateGray);
+                mSpriteBatch.Draw(mCursorTexture, mHorizontalMouseRectangle, Color.SlateGray);
             }
 
             mSpriteBatch.DrawString(mFont, 

@@ -17,7 +17,7 @@ namespace Transmission.World
         private NodeManager()
         {
             mNodes = new List<Node>();
-            mWhiteDisk = Transmission.Instance().CM().Load<Texture2D>("white_disk");
+            mWhiteDisk = Transmission.Instance().CM().Load<Texture2D>("white_circle");
         }
 
         public static NodeManager Instance()
@@ -46,7 +46,8 @@ namespace Transmission.World
         {
             for (int i = 0; i < mNodes.Count; i++)
             {
-                pSpriteBatch.Draw(mNodes[i].Texture, mNodes[i].Rect, mNodes[i].Colour);
+                pSpriteBatch.Draw(mNodes[i].Texture, mNodes[i].Rect, mNodes[i].IsWon() ? Color.LimeGreen : mNodes[i].Colour);
+                pSpriteBatch.Draw(mWhiteDisk, mNodes[i].Rect, mNodes[i].Colour);
             }
         }
 

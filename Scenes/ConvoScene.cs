@@ -19,7 +19,7 @@ namespace Transmission.Scenes
             Static
         }
 
-        float timePerChar = 0.1f;
+        float timePerChar = 0.05f;
         private float heightProp = 0.2f;
         private int height;
 
