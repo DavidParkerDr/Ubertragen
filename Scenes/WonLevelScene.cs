@@ -11,7 +11,7 @@ namespace Transmission.Scenes
         GameScene gameScene;
         Vector2 wonTextPos;
         Vector2 clickTextPos;
-        string wonText = "You Win!";
+        string wonText = "Level Complete!";
         string clickText = "Click to continue";
 
         private SpriteBatch sb;

@@ -1,0 +1,20 @@
+﻿{
+  "segments": [
+    {
+      "speaker": "bird",
+      "text": "Welcome to your scanner."
+    },
+    {
+      "speaker": "bird",
+      "text": "Here you can see all compu-nodes in range."
+    },
+    {
+      "speaker": "bird",
+      "text": "Your goal here is to hack all corporate compu-nodes in range."
+    },
+    {
+      "speaker": "bird",
+      "text": "You can hack a node by clicking it."
+    }
+  ]
+}

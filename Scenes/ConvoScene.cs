@@ -41,7 +41,7 @@ namespace Transmission.Scenes
 
         float timeSinceChar = 0f;
         string visibleText = "";
-        float elapsedTime = 0f;
+        float timeInState = 0f;
 
         public ConvoScene(string filename)
         {
@@ -70,11 +70,11 @@ namespace Transmission.Scenes
             textRectangle = new Rectangle(
                 textBgRectangle.Left + 10,
                 textBgRectangle.Top + 10,
-                textBgRectangle.Width - 20,
+                textBgRectangle.Width - 40,
                 textBgRectangle.Height - 20);
 
             clickTextPos = new Vector2(
-                screenWidth * 0.5f,
+                screenWidth * 0.55f,
                 screenHeight * 0.95f
             );
         }
@@ -90,13 +90,13 @@ namespace Transmission.Scenes
             Helpers.SpriteFontHelpers.RenderTextWithWrapping(
                 sb,
                 bodyFont,
-                20,
+                24,
                 visibleText,
                 textRectangle
             );
 
             if (state == State.Static) {
-                if ((int)elapsedTime % 2 == 0) {
+                if ((int)timeInState % 2 == 0) {
                     sb.DrawString(bodyFont, "Click to continue", clickTextPos, Color.White);
                 }
             }
@@ -106,7 +106,7 @@ namespace Transmission.Scenes
 
         public void Update(float pSeconds)
         {
-            elapsedTime += pSeconds;
+            timeInState += pSeconds;
             var mouseState = Mouse.GetState();
 
             timeSinceChar += pSeconds;
@@ -115,12 +115,12 @@ namespace Transmission.Scenes
             var segment = convo.Segments[segmentNum];
 
             if (state == State.AnimatingIn) {
-                state = State.AnimatingText;
+                this.changeState(State.AnimatingText);
             }
 
             if (state == State.AnimatingText)
             {
-                var tpc = lmb ? timePerChar : timePerChar / 2f;
+                var tpc = lmb ? timePerChar / 2f : timePerChar;
 
                 if (timeSinceChar > tpc)
                 {
@@ -131,20 +131,21 @@ namespace Transmission.Scenes
                     }
                     else
                     {
-                        this.state = State.Static;
+                        this.changeState(State.Static);
                     }
                 }
             }
 
             if (lmb &&
-                state == State.Static) {
+                state == State.Static &&
+                timeInState > 0.5f) {
                 if (segmentNum == convo.Segments.Count - 1)
                 {
                     game.SM().Pop();
                 } else {
                     visibleText = "";
                     segmentNum++;
-                    state = State.AnimatingText;
+                    this.changeState(State.AnimatingText);
                 }
             }
                 
@@ -165,6 +166,11 @@ namespace Transmission.Scenes
                 default: 
                     return "Unknown";
             }
+        }
+
+        private void changeState(State state) {
+            this.state = state;
+            this.timeInState = 0f;
         }
     }
 }
