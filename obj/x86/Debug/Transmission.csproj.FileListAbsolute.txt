@@ -197,3 +197,9 @@ C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Levels\05.txt
 C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Data\Stages\04.json
 C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Levels\04.txt
 C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\disconnected.xnb
+C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Levels\sjg03.txt
+C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Content\Levels\sjg04.txt
+C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Data\Stages\23.json
+C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Data\Stages\24.json
+C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Data\Convos\sjg03.json
+C:\Users\daviu\Downloads\ggj18\ggj-2018\bin\Windows\Debug\Data\Convos\sjg04.json
