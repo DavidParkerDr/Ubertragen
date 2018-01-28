@@ -4,7 +4,7 @@ Transmitter, 300, 270, fuchsia
 Transmitter, 270, 330, fuchsia
 Transmitter, 552, 460, fuchsia
 Transmitter, 600, 415, fuchsia
-Transmitter, 682, 450, fuchsia
-Transmitter, 200, 500, fuchsia
-Transmitter, 270, 410, fuchsia
-Transmitter, 800, 610, fuchsia
+Transmitter, 682, 450, gold
+Transmitter, 200, 500, gold
+Transmitter, 270, 410, gold
+Transmitter, 800, 610, cyan

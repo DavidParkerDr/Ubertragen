@@ -1,4 +1,4 @@
 ﻿Hacks:2
 Transmitter, 670, 342, red
 Absorber, 550, 400, red
-Transmitter, 435, 490, red
+Transmitter, 435, 490, gold

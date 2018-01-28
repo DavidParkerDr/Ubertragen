@@ -1,0 +1,8 @@
+﻿{
+  "level": "Content/Levels/sjg04.txt",
+  "convo": "Data/Convos/sjg04.json",
+  "next": {
+    "type": "story",
+    "file": "Data/Story/finale.json"
+  }
+}
