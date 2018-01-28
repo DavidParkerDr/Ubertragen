@@ -23,7 +23,7 @@ namespace Transmission.World
             Propagating
         };
 
-        private float propagatingTime = 5f;
+        private float propagatingTime = 3f;
 
         IGame game;
         GameScene scene;
@@ -110,11 +110,13 @@ namespace Transmission.World
         {
             timeInState += pSeconds;
 
-            if (State == LevelState.Playing && HasFocus)
-            {
+            if (HasFocus) {
                 mVerticalMouseRectangle.X = Mouse.GetState().Position.X - 1;
                 mHorizontalMouseRectangle.Y = Mouse.GetState().Position.Y - 1;
+            }
 
+            if (State == LevelState.Playing && HasFocus)
+            {
                 if (Mouse.GetState().LeftButton == ButtonState.Pressed)
                 {
                     if (mHacksRemaining > 0)
