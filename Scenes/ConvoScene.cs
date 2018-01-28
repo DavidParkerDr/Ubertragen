@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Newtonsoft.Json;
@@ -43,9 +45,20 @@ namespace Transmission.Scenes
         string visibleText = "";
         float timeInState = 0f;
 
+        private List<SoundEffectInstance> keyboardSounds;
+
         public ConvoScene(string filename)
         {
-            convo = JsonConvert.DeserializeObject<Convo>(File.ReadAllText(filename));   
+            convo = JsonConvert.DeserializeObject<Convo>(File.ReadAllText(filename));
+
+            this.keyboardSounds = new List<SoundEffectInstance>()
+            {
+                game.GetSoundManager().GetSoundEffectInstance("Sounds/Keyboard/keyboard_1"),
+                game.GetSoundManager().GetSoundEffectInstance("Sounds/Keyboard/keyboard_2"),
+                game.GetSoundManager().GetSoundEffectInstance("Sounds/Keyboard/keyboard_3"),
+                game.GetSoundManager().GetSoundEffectInstance("Sounds/Keyboard/keyboard_4"),
+                game.GetSoundManager().GetSoundEffectInstance("Sounds/Keyboard/keyboard_5")
+            };
 
             int screenWidth = game.GDM().GraphicsDevice.Viewport.Width;
             int screenHeight = game.GDM().GraphicsDevice.Viewport.Height;
@@ -128,6 +141,8 @@ namespace Transmission.Scenes
                     {
                         timeSinceChar = 0;
                         visibleText = segment.Text.Substring(0, visibleText.Length + 1);
+
+                        this.keyboardSounds[(int)(timeInState * 10) % 5].Play();
                     }
                     else
                     {
